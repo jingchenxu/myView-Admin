@@ -1,4 +1,5 @@
-import SysMenu from './types/SysMenu'
+import { SysMenu, SysUser } from '../types/sys'
+import menuList from './data/menu'
 const Mock = require('mockjs')
 
 Mock.mock('/api/data', 'get', (req, res) => {
@@ -12,9 +13,17 @@ Mock.mock('/api/data', 'get', (req, res) => {
 })
 
 Mock.mock('/api/login', 'post', (req, res) => {
+  // 返回用户的基本信息
+  let user = new SysUser()
+  // 返回用户的菜单信息
+  let menu = menuList
+  // TODO 返回用户的菜单操作按钮信息
   return {
     success: true,
-    data: {},
+    data: {
+      user,
+      menu
+    },
     msg: '登录成功'
   }
 })

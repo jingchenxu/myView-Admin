@@ -5,47 +5,34 @@ Vue.use(Vuex)
 
 const state = {
   currentUser: {
-    auth: [],
-    dept: {},
-    menugroups: [],
-    menus: [],
-    sessionid: '',
-    sets: [],
-    user: {}
+    user: {},
+    menu: [],
+    dept: {}
   },
   isLogin: false
 }
 
 const getters = {
-  getUserAuths: state => {
-    return state.currentUser.auths
-  },
-  getUserDept: state => {
-    return state.currentUser.dept
-  },
-  getUserMenuGroups: state => {
-    return state.currentUser.menugroups
-  },
-  getMenuJson: state => {
-    let { menugroups, menus } = { ...state.currentUser }
-    for (let i = 0; i < menugroups.length; i++) {
-      menugroups[i]['children'] = menus.filter(item => item.mgid === menugroups[i].mgid)
-    }
-    return menugroups
-  },
-  getUserMenus: state => {
-    return state.currentUser.menus
-  },
-  getUserSessionid: state => {
-    return state.currentUser.sessionid
-  },
-  getUserSets: state => {
-    return state.currentUser.sets
-  },
-  getUserInfo: state => {
+  getUser (state) {
     return state.currentUser.user
   },
-  getLoginStatus: state => {
+  getMenu (state) {
+    return state.currentUser.menu
+  },
+  getMenuTree (state) {
+    let { menu } = { ...state.currentUser }
+    // 找到一级菜单
+    let menuTree = menu.filter(_menu => _menu.mlevel === 1)
+    // FIXME 先只管二级菜单
+    for (let i = 0; i < menuTree.length; i++) {
+      menuTree[i]['child'] = menu.filter(_menu => _menu.mpid === menuTree[i].mid && _menu.mpid !== _menu.mid)
+    }
+    return menuTree
+  },
+  getDept (state) {
+    return state.currentUser.dept
+  },
+  getLogin (state) {
     return state.isLogin
   }
 }
@@ -54,17 +41,19 @@ const mutations = {
   updateCurrentUser (state, currentUser) {
     state.currentUser = currentUser
   },
-  updateLoginStatus (state, loginStatus) {
-    state.isLogin = loginStatus
+  changeLogin (state) {
+    const { isLogin } = { ...state }
+    state.isLogin = !isLogin
   }
 }
 
 const actions = {
   UPDATECURRENTUSER (context, currentUser) {
     context.commit('updateCurrentUser', currentUser)
+    context.commit('changeLogin', currentUser)
   },
-  UPDATELOGINSTATUS (context, loginStatus) {
-    context.commit('updateLoginStatus', loginStatus)
+  CHANGELOGIN (context) {
+    context.commit('changeLogin')
   }
 }
 

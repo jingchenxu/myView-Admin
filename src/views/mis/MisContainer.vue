@@ -12,7 +12,7 @@
         </el-header>
         <el-main>
           <mis-tab-navi/>
-          <router-view />
+          <router-view v-if="getLogin" />
         </el-main>
       </el-container>
     </el-container>
@@ -22,12 +22,18 @@
 <script>
 import MisMenu from './components/MisMenu'
 import MisTabNavi from './components/MisTabNavi'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'MisContainer',
   components: {
     MisMenu,
     MisTabNavi
+  },
+  computed: {
+    ...mapGetters([
+      'getLogin'
+    ])
   },
   methods: {
     handleSiderTrigger () {

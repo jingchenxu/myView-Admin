@@ -1,0 +1,62 @@
+[
+  {
+    "mid": 1,
+    "mkey": "workspace",
+    "mname": "工作台",
+    "micon": "md app",
+    "mpath": "/workspace",
+    "mtip": "工作台",
+    "mrender": "default",
+    "mpid": 1,
+    "mlevel": 1,
+    "mstatus": 1
+  },
+  {
+    "mid": 2,
+    "mkey": "index",
+    "mname": "首页",
+    "micon": "md app",
+    "mpath": "/index",
+    "mtip": "首页",
+    "mrender": "default",
+    "mpid": 1,
+    "mlevel": 2,
+    "mstatus": 1
+  },
+  {
+    "mid": 3,
+    "mkey": "sys",
+    "mname": "系统管理",
+    "micon": "md app",
+    "mpath": "/sys",
+    "mtip": "系统管理",
+    "mrender": "default",
+    "mpid": 3,
+    "mlevel": 1,
+    "mstatus": 1
+  },
+  {
+    "mid": 4,
+    "mkey": "syspage1",
+    "mname": "系统管理页面1",
+    "micon": "md app",
+    "mpath": "/syspage1",
+    "mtip": "系统管理页面1",
+    "mrender": "default",
+    "mpid": 3,
+    "mlevel": 2,
+    "mstatus": 1
+  },
+  {
+    "mid": 5,
+    "mkey": "syspage2",
+    "mname": "系统管理页面2",
+    "micon": "md app",
+    "mpath": "/syspage2",
+    "mtip": "系统管理页面2",
+    "mrender": "default",
+    "mpid": 3,
+    "mlevel": 2,
+    "mstatus": 1
+  }
+]

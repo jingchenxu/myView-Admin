@@ -18,7 +18,7 @@
         <Checkbox v-model="form.rememberPassword">记住密码</Checkbox>
       </FormItem>
       <FormItem>
-        <Button size="large" long type="primary" @click="handleLogin('login')">登录</Button>
+        <Button size="large" :loading="loading" long type="primary" @click="handleLogin('login')">登录</Button>
       </FormItem>
     </Form>
   </div>
@@ -34,16 +34,20 @@ export default {
       form: {
         rememberPassword: false
       },
-      rule: {}
+      rule: {},
+      loading: false
     }
   },
   methods: {
     handleLogin () {
       console.dir(process.env)
+      this.loading = true
       this.$axios.post('/api/login', this.form).then(res => {
+        this.loading = false
         console.dir(res)
         if (res.success) {
           this.$Message.success(res.msg)
+          this.$store.dispatch('UPDATECURRENTUSER', res.data)
           this.linkToMis()
         }
       })

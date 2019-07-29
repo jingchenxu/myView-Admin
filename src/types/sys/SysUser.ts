@@ -1,4 +1,4 @@
-export default class {
+export default class SysUser {
 
   constructor () {
     this.userid = ''

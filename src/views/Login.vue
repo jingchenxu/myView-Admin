@@ -1,40 +1,54 @@
 <template>
   <div class="login-container">
-    <Form class="login-form" ref="formInline" :model="formInline" :rules="ruleInline">
+    <Form class="login-form" ref="login" :model="form" :rules="rule">
       <div class="logo-container">
 
       </div>
       <FormItem prop="user">
-        <Input size="large" type="text" v-model="formInline.user" placeholder="Username">
+        <Input size="large" type="text" v-model="form.user" placeholder="Username">
           <Icon type="ios-person-outline" slot="prepend"></Icon>
         </Input>
       </FormItem>
       <FormItem prop="password">
-        <Input size="large" type="password" v-model="formInline.password" placeholder="Password">
+        <Input size="large" type="password" v-model="form.password" placeholder="Password">
           <Icon type="ios-lock-outline" slot="prepend"></Icon>
         </Input>
       </FormItem>
       <FormItem prop="rememberPassword">
-        <Checkbox v-model="formInline.rememberPassword">记住密码</Checkbox>
+        <Checkbox v-model="form.rememberPassword">记住密码</Checkbox>
       </FormItem>
       <FormItem>
-        <Button size="large" long type="primary" @click="handleSubmit('formInline')">登录</Button>
+        <Button size="large" long type="primary" @click="handleLogin('login')">登录</Button>
       </FormItem>
     </Form>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'Login',
   data () {
     return {
-      formInline: {},
-      ruleInline: {}
+      form: {
+        rememberPassword: false
+      },
+      rule: {}
     }
   },
   methods: {
-    handleSubmit () {
+    handleLogin () {
+      console.dir(process.env)
+      this.$axios.post('/api/login', this.form).then(res => {
+        console.dir(res)
+        if (res.success) {
+          this.$Message.success(res.msg)
+          this.linkToMis()
+        }
+      })
+    },
+    linkToMis () {
       this.$router.push({
         name: 'index'
       })

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start": "yarn run serve -o",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
@@ -28,7 +29,6 @@
     "vuex": "^3.0.1"
   },
   "devDependencies": {
-    "babel-plugin-component": "^1.1.1",
     "@types/chai": "^4.1.0",
     "@types/mocha": "^5.2.4",
     "@vue/cli-plugin-babel": "^3.9.0",
@@ -42,11 +42,14 @@
     "@vue/eslint-config-typescript": "^4.0.0",
     "@vue/test-utils": "1.0.0-beta.29",
     "babel-eslint": "^10.0.1",
+    "babel-plugin-component": "^1.1.1",
     "chai": "^4.1.2",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
+    "mock": "^0.1.1",
+    "mockjs": "^1.0.1-beta3",
     "typescript": "^3.4.3",
     "vue-template-compiler": "^2.6.10"
   }

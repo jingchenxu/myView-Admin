@@ -1,6 +1,6 @@
 <template>
   <div class="copy-right">
-
+    <h1>Copy Right</h1>
   </div>
 </template>
 

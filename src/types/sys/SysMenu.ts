@@ -1,5 +1,4 @@
 export default class SysMenu {
-
   constructor () {
     this.mid = ''
     this.mkey = ''
@@ -20,6 +19,4 @@ export default class SysMenu {
   private mrender:String
   private mlevel:String
   private mstatus:String
-
 }
-  

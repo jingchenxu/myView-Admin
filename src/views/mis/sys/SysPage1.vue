@@ -27,38 +27,38 @@
 </template>
 
 <script>
-import axios from "axios";
-import MisTable from "../components/MisTable";
-import MisTab from "../components/MisTab";
-import detail from "./SysPage1Detail";
+import axios from 'axios'
+import MisTable from '../components/MisTable'
+import MisTab from '../components/MisTab'
+import detail from './SysPage1Detail'
 
 export default {
-  name: "SysPage1",
+  name: 'SysPage1',
   components: {
     MisTable,
     MisTab,
     detail
   },
-  data() {
+  data () {
     return {
-      position: "list",
+      position: 'list',
       searchParams: {},
       searching: false
-    };
+    }
   },
-  mounted() {
-    console.log("请求开始");
-    axios.get("/api/data").then(res => {
-      console.dir(res);
-    });
+  mounted () {
+    console.log('请求开始')
+    axios.get('/api/data').then(res => {
+      console.dir(res)
+    })
   },
   methods: {
-    handleDbclick(row, column, event) {
-      console.log("双击被触发了");
-      this.position = "detail";
+    handleDbclick (row, column, event) {
+      console.log('双击被触发了')
+      this.position = 'detail'
     },
-    handleBack() {
-      
+    handleBack () {
+
     },
     handleSearch (ref) {
       this.searching = true
@@ -67,5 +67,5 @@ export default {
       }, 3000)
     }
   }
-};
+}
 </script>

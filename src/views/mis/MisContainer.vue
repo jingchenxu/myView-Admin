@@ -1,23 +1,27 @@
 <template>
   <div class="mis-container">
     <el-container>
-      <el-aside style="width: auto;">
-        <mis-menu/>
+      <el-aside :style="{width: getExpandMisMenu ? 'auto' : '260px'}">
+        <mis-menu />
       </el-aside>
       <el-container>
         <el-header>
           <a type="text" class="sider-trigger-a">
             <Icon @click="handleSiderTrigger" style="font-size: 26px;" type="md-menu" />
           </a>
-          <mis-header-item>
-            <span class="header-avator"><img src="https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png" alt="avatar"></span>
-            <span>myView Admin</span>
-          </mis-header-item>
+          <el-popover placement="bottom" trigger="hover">
+            <mis-header-item slot="reference">
+              <span class="header-avator"><img src="https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png" alt="avatar"></span>
+              <span>myView Admin</span>
+            </mis-header-item>
+            <Button long type="text">修改密码</Button>
+            <Button long @click="handleExit" type="text">退出</Button>
+          </el-popover>
         </el-header>
         <el-main>
-          <mis-tab-navi/>
+          <mis-tab-navi />
           <router-view v-if="getLogin" />
-          <copy-right/>
+          <copy-right />
         </el-main>
       </el-container>
     </el-container>
@@ -38,13 +42,17 @@ export default {
     MisHeaderItem
   },
   computed: {
-    ...mapGetters([
-      'getLogin'
-    ])
+    ...mapGetters(['getLogin', 'getExpandMisMenu'])
   },
   methods: {
     handleSiderTrigger () {
       this.$store.dispatch('CHANGEEXPANDMISMENU')
+    },
+    handleExit () {
+      // TODO 调用退出接口
+      this.$router.push({
+        name: 'login'
+      })
     }
   },
   mounted () {
@@ -66,9 +74,8 @@ export default {
   .el-container {
     height: 100%;
     .el-header {
-      background-color: #b3c0d1;
-      color: #333;
       line-height: 60px;
+      box-shadow: 0 1px 4px rgba(0,21,41,.08);
       .header-avator {
         img {
           width: 40px;
@@ -82,8 +89,8 @@ export default {
         text-decoration: none;
         outline: none;
         cursor: pointer;
-        -webkit-transition: color .2s ease;
-        transition: color .2s ease;
+        -webkit-transition: color 0.2s ease;
+        transition: color 0.2s ease;
       }
       .sider-trigger-a {
         padding: 6px;
@@ -97,8 +104,10 @@ export default {
     }
 
     .el-aside {
-      background-color: #d3dce6;
+      background: #001529;
       color: #333;
+      box-shadow: 2px 0 6px rgba(0,21,41,.35);
+      z-index: 1;
     }
 
     .el-main {

@@ -57,24 +57,23 @@
 
 <script>
 export default {
-  name: "SysPage1Detail",
-  data() {
+  name: 'SysPage1Detail',
+  data () {
     return {
       form: {},
       disabled: false
-    };
+    }
   },
-  mounted() {
-    console.dir(this.$parent);
+  mounted () {
+    console.dir(this.$parent)
   },
   methods: {
-    handleBack() {
-      this.$parent.$parent.position = "list";
+    handleBack () {
+      this.$parent.$parent.position = 'list'
     }
   }
-};
+}
 </script>
-
 
 <style lang="less" scoped>
 .sys-page1-detail {

@@ -13,7 +13,7 @@ export default {
 <style lang="less" scoped>
 .mis-tab-navi {
   width: 100%;
-  height: 36px;
-  background-color: yellow;
+  height: 44px;
+  background-color: grey;
 }
 </style>

@@ -15,14 +15,14 @@
 
 <script>
 export default {
-  name: "MisTab",
+  name: 'MisTab',
   props: {
     activeTab: {
       type: String,
-      default: "list"
+      default: 'list'
     }
   }
-};
+}
 </script>
 
 <style lang="less" scoped>

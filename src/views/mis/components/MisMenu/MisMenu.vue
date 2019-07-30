@@ -3,27 +3,30 @@
     <div class="mis-logo">
       <img src="./myView_Admin.png" alt="logo">
     </div>
-    <el-menu 
-    default-active="index" 
-    class="el-menu-vertical-demo" 
-    @open="handleOpen" 
-    @close="handleClose" 
-    @select="handleSelect" 
+    <el-menu
+    default-active="index"
+    class="el-menu-vertical-demo"
+    @open="handleOpen"
+    @close="handleClose"
+    @select="handleSelect"
+    background-color="#001529"
+    text-color="#fff"
+    active-text-color="#ffd04b"
     :collapse="getExpandMisMenu">
-      <el-submenu 
-      v-for="menu of getMenuTree" 
-      :index="menu.mkey" 
+      <el-submenu
+      v-for="menu of getMenuTree"
+      :index="menu.mkey"
       :key="menu.mkey">
         <template slot="title">
           <i class="el-icon-location"></i>
           <span slot="title">{{menu.mname}}</span>
         </template>
-        <el-menu-item-group>
-          <el-menu-item 
-          v-for="secondMenu of menu.child" 
-          :index="secondMenu.mkey" 
+        <!-- <el-menu-item-group> -->
+          <el-menu-item
+          v-for="secondMenu of menu.child"
+          :index="secondMenu.mkey"
           :key="secondMenu.mkey">{{secondMenu.mname}}</el-menu-item>
-        </el-menu-item-group>
+        <!-- </el-menu-item-group> -->
       </el-submenu>
     </el-menu>
   </div>
@@ -80,3 +83,12 @@ export default {
   }
 }
 </style>
+
+<style lang="less">
+.mis-menu {
+  .el-menu {
+    border-right: none;
+  }
+}
+</style>
+

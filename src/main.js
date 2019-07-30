@@ -5,7 +5,7 @@ import store from './store'
 import './registerServiceWorker'
 import iView from 'iview'
 import 'animate.css'
-import { Aside, Main, Header, Container, RadioButton, RadioGroup, Submenu, MenuItemGroup, MenuItem, Menu, Table, TableColumn } from 'element-ui'
+import { Aside, Main, Header, Container, RadioButton, RadioGroup, Submenu, MenuItemGroup, MenuItem, Menu, Table, TableColumn, Popover } from 'element-ui'
 import myView from './myview'
 import './mock'
 import vueplugin from './utils/vueplugin'
@@ -28,6 +28,7 @@ Vue.component('el-menu-item', MenuItem)
 Vue.component('el-menu', Menu)
 Vue.component('el-table', Table)
 Vue.component('el-table-column', TableColumn)
+Vue.component('el-popover', Popover)
 
 new Vue({
   router,

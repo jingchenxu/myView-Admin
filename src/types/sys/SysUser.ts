@@ -1,5 +1,4 @@
 export default class SysUser {
-
   constructor () {
     this.userid = ''
     this.username = ''
@@ -32,5 +31,4 @@ export default class SysUser {
   private userstatus:String
   private error:String
   private islock:String
-
 }

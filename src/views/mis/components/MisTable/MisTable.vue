@@ -13,38 +13,38 @@
 
 <script>
 export default {
-  name: "MisTable",
+  name: 'MisTable',
   props: {
     data: {
       type: Array,
       default: () => {
         return [
           {
-            date: "2016-05-02",
-            name: "王小虎",
-            address: "上海市普陀区金沙江路 1518 弄"
+            date: '2016-05-02',
+            name: '王小虎',
+            address: '上海市普陀区金沙江路 1518 弄'
           },
           {
-            date: "2016-05-04",
-            name: "王小虎",
-            address: "上海市普陀区金沙江路 1518 弄"
+            date: '2016-05-04',
+            name: '王小虎',
+            address: '上海市普陀区金沙江路 1518 弄'
           },
           {
-            date: "2016-05-01",
-            name: "王小虎",
-            address: "上海市普陀区金沙江路 1518 弄"
+            date: '2016-05-01',
+            name: '王小虎',
+            address: '上海市普陀区金沙江路 1518 弄'
           },
           {
-            date: "2016-05-03",
-            name: "王小虎",
-            address: "上海市普陀区金沙江路 1518 弄"
+            date: '2016-05-03',
+            name: '王小虎',
+            address: '上海市普陀区金沙江路 1518 弄'
           }
-        ];
+        ]
       }
     }
   },
-  data() {
-    return {};
+  data () {
+    return {}
   },
   methods: {
     handleDbclick (row, column, event) {
@@ -52,7 +52,7 @@ export default {
       this.$emit('handleDbclick', row, column, event)
     }
   }
-};
+}
 </script>
 
 <style lang="less" scoped>
@@ -61,5 +61,3 @@ export default {
   height: auto;
 }
 </style>
-
-

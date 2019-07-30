@@ -1,6 +1,7 @@
 <template>
   <div class="mis-menu">
     <div class="mis-logo">
+      <img src="./myView_Admin.png" alt="logo">
     </div>
     <el-menu 
     default-active="index" 
@@ -64,7 +65,18 @@ export default {
   .mis-logo {
     width: 100%;
     height: 60px;
-    background-color: grey;
+    background-color: transparent;
+    position: relative;
+
+    img {
+      width: 80%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+    }
   }
 }
 </style>

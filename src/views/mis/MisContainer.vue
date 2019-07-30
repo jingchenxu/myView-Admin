@@ -9,7 +9,10 @@
           <a type="text" class="sider-trigger-a">
             <Icon @click="handleSiderTrigger" style="font-size: 26px;" type="md-menu" />
           </a>
-          <mis-header-item/>
+          <mis-header-item>
+            <span class="header-avator"><img src="https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png" alt="avatar"></span>
+            <span>myView Admin</span>
+          </mis-header-item>
         </el-header>
         <el-main>
           <mis-tab-navi/>
@@ -66,6 +69,13 @@ export default {
       background-color: #b3c0d1;
       color: #333;
       line-height: 60px;
+      .header-avator {
+        img {
+          width: 40px;
+          vertical-align: middle;
+          margin-right: 10px;
+        }
+      }
       a {
         color: #2d8cf0;
         background: transparent;

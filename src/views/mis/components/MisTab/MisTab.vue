@@ -1,24 +1,28 @@
 <template>
   <div class="mis-tab">
-    <div v-if="activeTab === 'list'" class="list-container">
-      <slot name="list"/>
-    </div>
-    <div v-if="activeTab === 'detail'" class="detail-container">
-      <slot name="detail"/>
-    </div>
+    <transition name="slide-fade">
+      <div v-show="activeTab === 'list'" class="list-container">
+        <slot name="list" />
+      </div>
+    </transition>
+    <transition name="slide-fade">
+      <div v-show="activeTab === 'detail'" class="detail-container">
+        <slot name="detail" />
+      </div>
+    </transition>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'MisTab',
+  name: "MisTab",
   props: {
     activeTab: {
       type: String,
-      default: 'list'
+      default: "list"
     }
   }
-}
+};
 </script>
 
 <style lang="less" scoped>
@@ -36,12 +40,23 @@ export default {
   .detail-container {
     width: 100%;
     background-color: white;
+    padding: 10px;
+    .action-items-container {
+      border-bottom: 1px solid #dadada;
+    }
   }
 }
 </style>
 
 <style lang="less">
 .search-items-container {
+  border-bottom: 1px solid #dadada;
+  .ivu-form-item {
+    margin-bottom: 10px;
+  }
+}
+.action-items-container {
+  border-bottom: 1px solid #dadada;
   .ivu-form-item {
     margin-bottom: 10px;
   }

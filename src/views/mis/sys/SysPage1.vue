@@ -13,7 +13,7 @@
               </Input>
             </FormItem>
             <FormItem>
-              <Button type="primary" @click="handleSearch('searchParams')">查询</Button>
+              <Button type="primary" :loading="searching" icon="ios-search" @click="handleSearch('searchParams')">查询</Button>
             </FormItem>
           </Form>
         </div>
@@ -42,7 +42,8 @@ export default {
   data() {
     return {
       position: "list",
-      searchParams: {}
+      searchParams: {},
+      searching: false
     };
   },
   mounted() {
@@ -56,8 +57,14 @@ export default {
       console.log("双击被触发了");
       this.position = "detail";
     },
+    handleBack() {
+      
+    },
     handleSearch (ref) {
-      console.log('开始查询')
+      this.searching = true
+      setTimeout(() => {
+        this.searching = false
+      }, 3000)
     }
   }
 };

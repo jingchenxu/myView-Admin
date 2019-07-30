@@ -4,7 +4,7 @@ import router from './router'
 import store from './store'
 import './registerServiceWorker'
 import iView from 'iview'
-import { Aside, Main, Header, Container, RadioButton, RadioGroup, Submenu, MenuItemGroup, MenuItem, Menu } from 'element-ui'
+import { Aside, Main, Header, Container, RadioButton, RadioGroup, Submenu, MenuItemGroup, MenuItem, Menu, Table, TableColumn } from 'element-ui'
 import myView from './myview'
 import './mock'
 import vueplugin from './utils/vueplugin'
@@ -25,6 +25,8 @@ Vue.component('el-submenu', Submenu)
 Vue.component('el-menu-item-group', MenuItemGroup)
 Vue.component('el-menu-item', MenuItem)
 Vue.component('el-menu', Menu)
+Vue.component('el-table', Table)
+Vue.component('el-table-column', TableColumn)
 
 new Vue({
   router,

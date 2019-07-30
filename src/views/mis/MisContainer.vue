@@ -9,10 +9,12 @@
           <a type="text" class="sider-trigger-a">
             <Icon @click="handleSiderTrigger" style="font-size: 26px;" type="md-menu" />
           </a>
+          <mis-header-item/>
         </el-header>
         <el-main>
           <mis-tab-navi/>
           <router-view v-if="getLogin" />
+          <copy-right/>
         </el-main>
       </el-container>
     </el-container>
@@ -22,13 +24,15 @@
 <script>
 import MisMenu from './components/MisMenu'
 import MisTabNavi from './components/MisTabNavi'
+import MisHeaderItem from './components/MisHeaderItem'
 import { mapGetters } from 'vuex'
 
 export default {
   name: 'MisContainer',
   components: {
     MisMenu,
-    MisTabNavi
+    MisTabNavi,
+    MisHeaderItem
   },
   computed: {
     ...mapGetters([
@@ -38,6 +42,15 @@ export default {
   methods: {
     handleSiderTrigger () {
       this.$store.dispatch('CHANGEEXPANDMISMENU')
+    }
+  },
+  mounted () {
+    if (!this.getLogin) {
+      this.$axios.get('/api/getonlineuser').then(res => {
+        if (res.success) {
+          this.$store.dispatch('UPDATECURRENTUSER', res.data)
+        }
+      })
     }
   }
 }
@@ -80,9 +93,6 @@ export default {
 
     .el-main {
       background-color: #e9eef3;
-      color: #333;
-      text-align: center;
-      line-height: 160px;
       padding: 0;
     }
   }

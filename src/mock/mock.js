@@ -28,4 +28,25 @@ Mock.mock('/api/login', 'post', (req, res) => {
   }
 })
 
+Mock.mock('/api/getonlineuser', 'get', (req, res) => {
+  let user = new SysUser()
+  let menu = menuList
+  return {
+    success: true,
+    data: {
+      user,
+      menu
+    },
+    msg: ''
+  }
+})
+
+Mock.mock('/api/searchsyspage1columns', 'get', (req, res) => {
+  return {
+    success: true,
+    data: {},
+    msg: ''
+  }
+})
+
 export default Mock

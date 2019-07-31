@@ -1,13 +1,17 @@
 <template>
-  <div class="copy-right">
+  <footer class="copy-right">
     <span>myView Admin</span>
-  </div>
+    </br>
+    <span>Copyright © 2019 jingchenxu2015@gmail.com</span>
+  </footer>
 </template>
 
 <style lang="less" scoped>
 .copy-right {
-  min-height: 100px;
   background-color: transparent;
   text-align: center;
+  flex: 0 0 auto;
+  padding: 20px;
+  line-height: 30px;
 }
 </style>

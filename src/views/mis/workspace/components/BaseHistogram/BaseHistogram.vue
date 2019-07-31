@@ -18,7 +18,6 @@ export default {
     drawArea () {
       // 绘制柱状图区域
       let svgContainer = document.getElementById('histogram')
-      
     }
   },
   mounted () {
@@ -31,8 +30,6 @@ export default {
 <style lang="less" scoped>
 .base-histogram {
   width: 100%;
-  min-height: 100px;  
+  min-height: 100px;
 }
 </style>
-
-

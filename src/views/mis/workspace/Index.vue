@@ -67,6 +67,7 @@ export default {
 
 <style lang="less" scoped>
 .index-container {
-  padding: 15px;
+  padding: 0 15px;
+  min-height: 75vh;
 }
 </style>

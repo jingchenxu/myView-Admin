@@ -27,8 +27,8 @@ export default {
 
 <style lang="less" scoped>
 .mis-tab {
-  width: 100%;
-  padding: 15px;
+  padding: 0 15px;
+  min-height: 75vh;
   .list-container {
     width: 100%;
     background-color: white;

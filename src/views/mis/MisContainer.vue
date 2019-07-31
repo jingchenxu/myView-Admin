@@ -6,9 +6,18 @@
       </el-aside>
       <el-container>
         <el-header>
-          <a type="text" class="sider-trigger-a">
+          <span class="sider-trigger">
             <Icon @click="handleSiderTrigger" style="font-size: 26px;" type="md-menu" />
-          </a>
+          </span>
+          <mis-header-item>
+            <Icon @click="handleSetting" style="font-size: 18px;" type="md-more" />
+            <Drawer :closable="true" v-model="showSetting">
+              <Divider>主题风格设置</Divider>
+              <p>Some contents...</p>
+              <p>Some contents...</p>
+              <p>Some contents...</p>
+            </Drawer>
+          </mis-header-item>
           <el-popover placement="bottom" trigger="hover">
             <mis-header-item slot="reference">
               <span class="header-avator"><img src="https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png" alt="avatar"></span>
@@ -29,42 +38,50 @@
 </template>
 
 <script>
-import MisMenu from './components/MisMenu'
-import MisTabNavi from './components/MisTabNavi'
-import MisHeaderItem from './components/MisHeaderItem'
-import { mapGetters } from 'vuex'
+import MisMenu from "./components/MisMenu";
+import MisTabNavi from "./components/MisTabNavi";
+import MisHeaderItem from "./components/MisHeaderItem";
+import { mapGetters } from "vuex";
 
 export default {
-  name: 'MisContainer',
+  name: "MisContainer",
   components: {
     MisMenu,
     MisTabNavi,
     MisHeaderItem
   },
+  data() {
+    return {
+      showSetting: false
+    };
+  },
   computed: {
-    ...mapGetters(['getLogin', 'getExpandMisMenu'])
+    ...mapGetters(["getLogin", "getExpandMisMenu"])
   },
   methods: {
-    handleSiderTrigger () {
-      this.$store.dispatch('CHANGEEXPANDMISMENU')
+    handleSiderTrigger() {
+      this.$store.dispatch("CHANGEEXPANDMISMENU");
     },
-    handleExit () {
+    handleExit() {
       // TODO 调用退出接口
       this.$router.push({
-        name: 'login'
-      })
+        name: "login"
+      });
+    },
+    handleSetting() {
+      this.showSetting = true;
     }
   },
-  mounted () {
+  mounted() {
     if (!this.getLogin) {
-      this.$axios.get('/api/getonlineuser').then(res => {
+      this.$axios.get("/api/getonlineuser").then(res => {
         if (res.success) {
-          this.$store.dispatch('UPDATECURRENTUSER', res.data)
+          this.$store.dispatch("UPDATECURRENTUSER", res.data);
         }
-      })
+      });
     }
   }
-}
+};
 </script>
 
 <style lang="less">
@@ -75,7 +92,8 @@ export default {
     height: 100%;
     .el-header {
       line-height: 60px;
-      box-shadow: 0 1px 4px rgba(0,21,41,.08);
+      box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+      padding: 0;
       .header-avator {
         img {
           width: 40px;
@@ -83,35 +101,25 @@ export default {
           margin-right: 10px;
         }
       }
-      a {
-        color: #2d8cf0;
-        background: transparent;
-        text-decoration: none;
-        outline: none;
-        cursor: pointer;
-        -webkit-transition: color 0.2s ease;
-        transition: color 0.2s ease;
-      }
-      .sider-trigger-a {
-        padding: 6px;
-        width: 40px;
-        height: 40px;
+      .sider-trigger {
         display: inline-block;
+        width: 64px;
+        height: 64px;
         text-align: center;
-        color: #5c6b77;
-        margin-top: 12px;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
       }
     }
 
     .el-aside {
       background: #001529;
       color: #333;
-      box-shadow: 2px 0 6px rgba(0,21,41,.35);
+      box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
       z-index: 1;
     }
 
     .el-main {
-      background-color: #e9eef3;
+      background-color: #f5f7f9;
       padding: 0;
     }
   }

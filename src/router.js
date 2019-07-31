@@ -27,7 +27,9 @@ export default new Router({
     children: [
       { path: 'index', name: 'index', component: () => import('@/views/mis/workspace/Index') },
       { path: 'syspage1', name: 'syspage1', component: () => import('./views/mis/sys/SysPage1') },
-      { path: 'syspage2', name: 'syspage2', component: () => import('@/views/mis/sys/SysPage2') }
+      { path: 'syspage2', name: 'syspage2', component: () => import('@/views/mis/sys/SysPage2') },
+      { path: 'usercenter', name: 'usercenter', component: () => import('@/views/mis/set/UserCenter') },
+      { path: 'usersetting', name: 'usersetting', component: () => import('@/views/mis/set/UserSetting') }
     ]
   }
   ]

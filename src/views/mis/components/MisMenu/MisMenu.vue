@@ -18,7 +18,7 @@
       :index="menu.mkey"
       :key="menu.mkey">
         <template slot="title">
-          <i class="el-icon-location"></i>
+          <Icon style="margin-right: 8px;" :type="menu.micon" />
           <span slot="title">{{menu.mname}}</span>
         </template>
         <!-- <el-menu-item-group> -->
@@ -91,4 +91,3 @@ export default {
   }
 }
 </style>
-

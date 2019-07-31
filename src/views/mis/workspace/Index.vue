@@ -69,5 +69,6 @@ export default {
 .index-container {
   padding: 0 15px;
   min-height: 75vh;
+  margin-top: 44px;
 }
 </style>

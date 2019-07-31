@@ -7,7 +7,8 @@
       <el-container>
         <el-header>
           <span class="sider-trigger">
-            <Icon @click="handleSiderTrigger" style="font-size: 26px;" type="md-menu" />
+          <Icon v-if="!getExpandMisMenu" @click="handleSiderTrigger" custom="iconfont mvzhankai" size="20" />
+          <Icon v-else @click="handleSiderTrigger" custom="iconfont mvshouqi" size="20" />
           </span>
           <mis-header-item>
             <Icon @click="handleSetting" style="font-size: 18px;" type="md-more" />
@@ -38,50 +39,50 @@
 </template>
 
 <script>
-import MisMenu from "./components/MisMenu";
-import MisTabNavi from "./components/MisTabNavi";
-import MisHeaderItem from "./components/MisHeaderItem";
-import { mapGetters } from "vuex";
+import MisMenu from './components/MisMenu'
+import MisTabNavi from './components/MisTabNavi'
+import MisHeaderItem from './components/MisHeaderItem'
+import { mapGetters } from 'vuex'
 
 export default {
-  name: "MisContainer",
+  name: 'MisContainer',
   components: {
     MisMenu,
     MisTabNavi,
     MisHeaderItem
   },
-  data() {
+  data () {
     return {
       showSetting: false
-    };
+    }
   },
   computed: {
-    ...mapGetters(["getLogin", "getExpandMisMenu"])
+    ...mapGetters(['getLogin', 'getExpandMisMenu'])
   },
   methods: {
-    handleSiderTrigger() {
-      this.$store.dispatch("CHANGEEXPANDMISMENU");
+    handleSiderTrigger () {
+      this.$store.dispatch('CHANGEEXPANDMISMENU')
     },
-    handleExit() {
+    handleExit () {
       // TODO 调用退出接口
       this.$router.push({
-        name: "login"
-      });
+        name: 'login'
+      })
     },
-    handleSetting() {
-      this.showSetting = true;
+    handleSetting () {
+      this.showSetting = true
     }
   },
-  mounted() {
+  mounted () {
     if (!this.getLogin) {
-      this.$axios.get("/api/getonlineuser").then(res => {
+      this.$axios.get('/api/getonlineuser').then(res => {
         if (res.success) {
-          this.$store.dispatch("UPDATECURRENTUSER", res.data);
+          this.$store.dispatch('UPDATECURRENTUSER', res.data)
         }
-      });
+      })
     }
   }
-};
+}
 </script>
 
 <style lang="less">
@@ -116,6 +117,7 @@ export default {
       color: #333;
       box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
       z-index: 1;
+      transition: all .2s ease-in-out;
     }
 
     .el-main {

@@ -23,14 +23,14 @@
 import BaseSetting from './subpages/BaseSetting'
 
 export default {
-  name: "UserSetting",
+  name: 'UserSetting',
   components: {
     BaseSetting
   },
-  data() {
-    return {};
+  data () {
+    return {}
   }
-};
+}
 </script>
 
 <style lang="less" scoped>
@@ -39,7 +39,6 @@ export default {
 .user-setting {
   min-height: 75vh;
   padding: 0 @default-gutter;
+  margin-top: 44px;
 }
 </style>
-
-

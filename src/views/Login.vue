@@ -2,7 +2,7 @@
   <div class="login-container">
     <Form class="login-form" ref="login" :model="form" :rules="rule">
       <div class="logo-container">
-
+        <img src="../../public/misimg/myView_Admin.png"/>
       </div>
       <FormItem prop="user">
         <Input size="large" type="text" v-model="form.user" placeholder="Username">
@@ -78,8 +78,10 @@ export default {
     bottom: 0;
     .logo-container {
       height: 80px;
-      background-color: grey;
       margin-bottom: 20px;
+      img {
+        width: 100%;
+      }
     }
   }
 }

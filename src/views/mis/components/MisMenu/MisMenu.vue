@@ -12,6 +12,7 @@
     background-color="#001529"
     text-color="#fff"
     active-text-color="#ffd04b"
+    unique-opened
     :collapse="getExpandMisMenu">
       <el-submenu
       v-for="menu of getMenuTree"

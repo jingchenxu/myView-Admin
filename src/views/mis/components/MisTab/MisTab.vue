@@ -29,6 +29,7 @@ export default {
 .mis-tab {
   padding: 0 15px;
   min-height: 75vh;
+  margin-top: 44px;
   .list-container {
     width: 100%;
     background-color: white;
@@ -50,13 +51,12 @@ export default {
 
 <style lang="less">
 .search-items-container {
-  border-bottom: 1px solid #dadada;
   .ivu-form-item {
     margin-bottom: 10px;
   }
 }
 .action-items-container {
-  border-bottom: 1px solid #dadada;
+  border-bottom: 1px solid #EBEEF5;
   .ivu-form-item {
     margin-bottom: 10px;
   }

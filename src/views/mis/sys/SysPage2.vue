@@ -11,8 +11,11 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import '../../../theme.less';
+
 .sys-page2 {
   min-height: 75vh;
+  padding: 0 @default-gutter;
+  margin-top: 44px;
 }
 </style>
-

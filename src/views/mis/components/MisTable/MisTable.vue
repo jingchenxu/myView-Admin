@@ -1,6 +1,6 @@
 <template>
   <div class="mis-table">
-    <el-table :data="data" style="width: 100%" border size="small" @row-dblclick="handleDbclick">
+    <el-table :data="data" style="width: 100%" border size="small" :stripe="stripe" v-loading="loading" @row-dblclick="handleDbclick">
       <el-table-column type="index" align="center" width="50">
       </el-table-column>
       <el-table-column type="selection" align="center" width="55">
@@ -15,17 +15,24 @@
   </div>
 </template>
 
-<script>
-import TableColumn from './TableColumn'
+<script lang="ts">
+import Vue from "vue";
+import TableColumn from './TableColumn';
 
-export default {
+export default Vue.extend({
   name: "MisTable",
   props: {
+    stripe: {
+      type: Boolean,
+      default: true
+    },
+    loading: {
+      type: Boolean,
+      default: false
+    },
     column: {
       type: Array,
-      default: () => {
-
-      }
+      default: () => {}
     },
     data: {
       type: Array,
@@ -92,13 +99,18 @@ export default {
     handleDbclick(row, column, event) {
       console.log("双击被触发了");
       this.$emit("handleDbclick", row, column, event);
-    }
+    },
   },
-  mounted () {
-    console.dir(new TableColumn())
+  mounted() {
+    let tableColumn: TableColumn = {
+      prop: 'data',
+      label: '日期'
+    }
+    console.dir(tableColumn);
   }
-};
+});
 </script>
+
 
 <style lang="less" scoped>
 .mis-table {

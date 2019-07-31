@@ -4,12 +4,12 @@
       <div slot="list">
         <div class="search-items-container">
           <Form ref="searchParams" :model="searchParams" inline>
-            <FormItem prop="user">
-              <Input type="text" v-model="searchParams.user" placeholder="Username">
+            <FormItem prop="name">
+              <Input clearable type="text" v-model="searchParams.name" @on-enter="handleSearch" placeholder="请输入姓名">
               </Input>
             </FormItem>
-            <FormItem prop="password">
-              <Input v-model="searchParams.password" placeholder="Password">
+            <FormItem prop="address">
+              <Input clearable v-model="searchParams.address" @on-enter="handleSearch" placeholder="请输入地址">
               </Input>
             </FormItem>
             <FormItem>
@@ -17,9 +17,9 @@
             </FormItem>
           </Form>
         </div>
-        <mis-table @handleDbclick="handleDbclick" />
+        <mis-table :data="data" @handleDbclick="handleDbclick" :loading="searching" />
         <white-space/>
-        <Page :total="100" show-sizer />
+        <Page @on-change="handlePageChange" :total="total" show-sizer />
       </div>
       <detail slot="detail" />
     </mis-tab>
@@ -43,28 +43,53 @@ export default {
     return {
       position: 'list',
       searchParams: {},
-      searching: false
+      searchUrl: '/api/searchuserlist',
+      searching: false,
+      currentPage: 1,
+      pageSize: 10,
+      total: 0,
+      data: []
     }
   },
   mounted () {
-    console.log('请求开始')
-    axios.get('/api/data').then(res => {
-      console.dir(res)
-    })
+    this.initList()
   },
   methods: {
+    async initList () {
+      await this.handleSearch()
+    },
     handleDbclick (row, column, event) {
       console.log('双击被触发了')
       this.position = 'detail'
     },
+    handleSearch () {
+      this.searching = true
+      let searchParams = Object.assign(this.searchParams, {})
+      searchParams['pagenumber'] = this.currentPage
+      searchParams['limit'] = this.pageSize
+      let params = new URLSearchParams()
+      for (let key in searchParams) {
+        if (searchParams[key]) {
+          params.append(key, searchParams[key])
+        }
+      }
+
+      this.$axios.get(`${this.searchUrl}`, {
+        params
+      }).then(res => {
+        this.searching = false
+        if (res.success) {
+          this.data = res.data.list
+          this.total = res.data.total
+        }
+      })
+    },
     handleBack () {
 
     },
-    handleSearch (ref) {
-      this.searching = true
-      setTimeout(() => {
-        this.searching = false
-      }, 3000)
+    handlePageChange (currentPage) {
+      this.currentPage = currentPage
+      this.handleSearch()
     }
   }
 }

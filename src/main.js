@@ -5,7 +5,7 @@ import store from './store'
 import './registerServiceWorker'
 import iView from 'iview'
 import 'animate.css'
-import { Aside, Main, Header, Container, RadioButton, RadioGroup, Submenu, MenuItemGroup, MenuItem, Menu, Table, TableColumn, Popover } from 'element-ui'
+import { Aside, Main, Header, Container, RadioButton, RadioGroup, Submenu, MenuItemGroup, MenuItem, Menu, Table, TableColumn, Popover, Loading } from 'element-ui'
 import myView from './myview'
 import './mock'
 import vueplugin from './utils/vueplugin'
@@ -15,6 +15,7 @@ Vue.config.productionTip = false
 Vue.use(iView)
 Vue.use(myView)
 Vue.use(vueplugin)
+Vue.use(Loading.directive)
 
 Vue.component('el-aside', Aside)
 Vue.component('el-main', Main)

@@ -1,5 +1,26 @@
 [
   {
-    
+    "type": "index",
+    "align": "center",
+    "width": 50
+  },
+  {
+    "type": "selection",
+    "align": "center",
+    "width": 55
+  },
+  {
+    "prop": "date",
+    "label": "日期",
+    "width": 180
+  },
+  {
+    "prop": "name",
+    "label": "姓名",
+    "width": 180
+  },
+  {
+    "prop": "address",
+    "label": "地址"
   }
 ]

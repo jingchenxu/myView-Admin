@@ -1,6 +1,8 @@
 <template>
   <div class="mis-table">
     <el-table :data="data" style="width: 100%" border size="small" :stripe="stripe" v-loading="loading" @row-dblclick="handleDbclick">
+      <!-- <el-table-column v-for="(column, index) of columns" type="index" align="center" width="50">
+      </el-table-column> -->
       <el-table-column type="index" align="center" width="50">
       </el-table-column>
       <el-table-column type="selection" align="center" width="55">
@@ -30,7 +32,7 @@ export default Vue.extend({
       type: Boolean,
       default: false
     },
-    column: {
+    columns: {
       type: Array,
       default: () => {}
     },

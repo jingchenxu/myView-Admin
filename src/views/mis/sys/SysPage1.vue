@@ -29,7 +29,7 @@
             </FormItem>
           </Form>
         </div>
-        <mis-table :data="data" @handleDbclick="handleDbclick" :loading="searching" />
+        <mis-table :data="data" :columns="columns" @handleDbclick="handleDbclick" :loading="searching" />
         <white-space />
         <Page @on-change="handlePageChange" :total="total" show-sizer />
       </div>
@@ -56,10 +56,13 @@ export default {
       position: 'list',
       searchParams: {},
       searchUrl: '/api/searchuserlist',
+      columnUrl: '/api/getcolumns',
+      columnid: 'syspage',
       searching: false,
       currentPage: 1,
       pageSize: 10,
       total: 0,
+      columns: [],
       data: []
     }
   },
@@ -68,11 +71,21 @@ export default {
   },
   methods: {
     async initList () {
+      this.getColumns()
       await this.handleSearch()
     },
     handleDbclick (row, column, event) {
       console.log('双击被触发了')
       this.position = 'detail'
+    },
+    getColumns () {
+      let params = new URLSearchParams()
+      params.append('columnid', this.columnid)
+      this.$axios.get(`${this.columnUrl}?columnid=${this.columnid}`).then(res => {
+        if (res.success) {
+          this.columns = res.data
+        }
+      })
     },
     handleSearch () {
       this.searching = true

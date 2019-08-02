@@ -38,6 +38,7 @@ import { searchUserList } from '@/api/sysapi'
   }
 })
 export default class SysPage3 extends Vue {
+
   private data () {
     return {
       searchParams: {},
@@ -56,6 +57,7 @@ export default class SysPage3 extends Vue {
   private async initList () {
     await this.handleSearch()
   }
+
   private handleSearch () {
     let vm = this as any
     (this as any).searching = true
@@ -77,11 +79,15 @@ export default class SysPage3 extends Vue {
       }
     })
   }
+
   private handleAdd () {}
+
   private handleBack () {}
+
   private handlePageChange (currentPage: number) {
     (this as any).currentPage = currentPage
     this.handleSearch()
   }
+  
 }
 </script>

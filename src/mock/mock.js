@@ -4,6 +4,7 @@ import {
 } from '../types/sys'
 import menuList from './data/menu'
 import userList from './data/userlist'
+import syspage1columns from './data/syspage1columns'
 const Mock = require('mockjs')
 
 Mock.setup({
@@ -58,7 +59,6 @@ Mock.mock('/api/searchsyspage1columns', 'get', (req, res) => {
 })
 
 Mock.mock(/\/api\/searchuserlist[\s\S]*?/, 'get', (req, res) => {
-  console.dir(req)
   function getUrl (para) {
     var paraArr = req.url.split('?')[1].split('&')
     for (var i = 0; i < paraArr.length; i++) {
@@ -79,7 +79,6 @@ Mock.mock(/\/api\/searchuserlist[\s\S]*?/, 'get', (req, res) => {
   } else {
     _userList = Object.assign(userList, [])
   }
-  console.dir(userList)
   let start = (pagenumber - 1) * limit
   let end = pagenumber * limit
   return {
@@ -88,6 +87,33 @@ Mock.mock(/\/api\/searchuserlist[\s\S]*?/, 'get', (req, res) => {
       list: _userList.slice(start, end),
       total: userList.length
     },
+    msg: ''
+  }
+})
+
+Mock.mock(/\/api\/getcolumns[\s\S]*?/, 'get', (req, res) => {
+  console.dir(req)
+  function getUrl (para) {
+    var paraArr = req.url.split('?')[1].split('&')
+    for (var i = 0; i < paraArr.length; i++) {
+      if (para === paraArr[i].split('=')[0]) {
+        return paraArr[i].split('=')[1]
+      }
+    }
+    return ''
+  }
+  let columnid = getUrl('columnid')
+  let data = []
+  switch (columnid) {
+    case 'syspage':
+      data = syspage1columns
+      break
+    default:
+      break
+  }
+  return {
+    success: true,
+    data,
     msg: ''
   }
 })

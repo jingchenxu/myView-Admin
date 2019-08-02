@@ -17,3 +17,12 @@ export const searchUserList = (data: any) => {
   }
   return _get(req)
 }
+
+// 查询用户列表表头
+export const getColumns = (data: any) => {
+  const req = {
+    data,
+    url: '/api/getcolumns'
+  }
+  return _get(req)
+}

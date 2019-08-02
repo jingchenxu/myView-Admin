@@ -15,10 +15,22 @@
             <FormItem>
               <Button type="primary" :loading="searching" icon="ios-search" @click="handleSearch('searchParams')">查询</Button>
             </FormItem>
+            <FormItem>
+              <Button type="primary" icon="md-add" @click="handleAdd('searchParams')">新增</Button>
+            </FormItem>
+            <FormItem>
+              <Button type="primary" icon="ios-create" @click="handleAdd('searchParams')">修改</Button>
+            </FormItem>
+            <FormItem>
+              <Button type="error" icon="ios-trash" @click="handleAdd('searchParams')">删除</Button>
+            </FormItem>
+            <FormItem>
+              <Button type="primary" icon="ios-redo" @click="handleAdd('searchParams')">导出</Button>
+            </FormItem>
           </Form>
         </div>
         <mis-table :data="data" @handleDbclick="handleDbclick" :loading="searching" />
-        <white-space/>
+        <white-space />
         <Page @on-change="handlePageChange" :total="total" show-sizer />
       </div>
       <detail slot="detail" />
@@ -74,19 +86,20 @@ export default {
         }
       }
 
-      this.$axios.get(`${this.searchUrl}`, {
-        params
-      }).then(res => {
-        this.searching = false
-        if (res.success) {
-          this.data = res.data.list
-          this.total = res.data.total
-        }
-      })
+      this.$axios
+        .get(`${this.searchUrl}`, {
+          params
+        })
+        .then(res => {
+          this.searching = false
+          if (res.success) {
+            this.data = res.data.list
+            this.total = res.data.total
+          }
+        })
     },
-    handleBack () {
-
-    },
+    handleAdd () {},
+    handleBack () {},
     handlePageChange (currentPage) {
       this.currentPage = currentPage
       this.handleSearch()

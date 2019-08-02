@@ -58,6 +58,7 @@ Mock.mock('/api/searchsyspage1columns', 'get', (req, res) => {
 })
 
 Mock.mock(/\/api\/searchuserlist[\s\S]*?/, 'get', (req, res) => {
+  console.dir(req)
   function getUrl (para) {
     var paraArr = req.url.split('?')[1].split('&')
     for (var i = 0; i < paraArr.length; i++) {

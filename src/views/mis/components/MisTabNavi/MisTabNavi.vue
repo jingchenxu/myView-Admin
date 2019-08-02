@@ -29,16 +29,16 @@
 
 <script>
 export default {
-  name: "MisTabNavi",
+  name: 'MisTabNavi',
   methods: {
     handlePrev () {
 
     },
     handleNext () {
-      
+
     }
   }
-};
+}
 </script>
 
 <style lang="less" scoped>

@@ -1,5 +1,6 @@
 <template>
   <div class="login-container">
+    <div class="login-form-mask"></div>
     <Form class="login-form" ref="login" :model="form" :rules="rule">
       <div class="logo-container">
         <img src="../../public/misimg/myView_Admin.png"/>
@@ -65,10 +66,25 @@ export default {
 .login-container {
   width: 100%;
   height: 100%;
-  .login-form {
+  background:url('../../public/misimg/bg01.jpg') no-repeat center center;
+  .login-form-mask {
     width: 400px;
     height: 370px;
-    border: 1px solid #dadada;
+    padding: 30px 20px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    filter: blur(15px);
+    background-color: #22456175;
+  }
+  .login-form {
+    z-index: 1;
+    width: 400px;
+    height: 370px;
+    border: 1px solid #173955;
     padding: 30px 20px;
     margin: auto;
     position: absolute;

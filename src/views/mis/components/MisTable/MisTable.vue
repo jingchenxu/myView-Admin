@@ -16,11 +16,11 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import TableColumn from './TableColumn';
+import Vue from 'vue'
+import TableColumn from './TableColumn'
 
 export default Vue.extend({
-  name: "MisTable",
+  name: 'mis-table',
   props: {
     stripe: {
       type: Boolean,
@@ -39,78 +39,77 @@ export default Vue.extend({
       default: () => {
         return [
           {
-            date: "2016-05-02",
-            name: "王小虎",
-            address: "上海市普陀区金沙江路 1518 弄"
+            date: '2016-05-02',
+            name: '王小虎',
+            address: '上海市普陀区金沙江路 1518 弄'
           },
           {
-            date: "2016-05-04",
-            name: "王小虎",
-            address: "上海市普陀区金沙江路 1518 弄"
+            date: '2016-05-04',
+            name: '王小虎',
+            address: '上海市普陀区金沙江路 1518 弄'
           },
           {
-            date: "2016-05-01",
-            name: "王小虎",
-            address: "上海市普陀区金沙江路 1518 弄"
+            date: '2016-05-01',
+            name: '王小虎',
+            address: '上海市普陀区金沙江路 1518 弄'
           },
           {
-            date: "2016-05-03",
-            name: "王小虎",
-            address: "上海市普陀区金沙江路 1518 弄"
+            date: '2016-05-03',
+            name: '王小虎',
+            address: '上海市普陀区金沙江路 1518 弄'
           },
           {
-            date: "2016-05-03",
-            name: "王小虎",
-            address: "上海市普陀区金沙江路 1518 弄"
+            date: '2016-05-03',
+            name: '王小虎',
+            address: '上海市普陀区金沙江路 1518 弄'
           },
           {
-            date: "2016-05-03",
-            name: "王小虎",
-            address: "上海市普陀区金沙江路 1518 弄"
+            date: '2016-05-03',
+            name: '王小虎',
+            address: '上海市普陀区金沙江路 1518 弄'
           },
           {
-            date: "2016-05-03",
-            name: "王小虎",
-            address: "上海市普陀区金沙江路 1518 弄"
+            date: '2016-05-03',
+            name: '王小虎',
+            address: '上海市普陀区金沙江路 1518 弄'
           },
           {
-            date: "2016-05-03",
-            name: "王小虎",
-            address: "上海市普陀区金沙江路 1518 弄"
+            date: '2016-05-03',
+            name: '王小虎',
+            address: '上海市普陀区金沙江路 1518 弄'
           },
           {
-            date: "2016-05-03",
-            name: "王小虎",
-            address: "上海市普陀区金沙江路 1518 弄"
+            date: '2016-05-03',
+            name: '王小虎',
+            address: '上海市普陀区金沙江路 1518 弄'
           },
           {
-            date: "2016-05-03",
-            name: "王小虎",
-            address: "上海市普陀区金沙江路 1518 弄"
+            date: '2016-05-03',
+            name: '王小虎',
+            address: '上海市普陀区金沙江路 1518 弄'
           }
-        ];
+        ]
       }
     }
   },
-  data() {
-    return {};
+  data () {
+    return {}
   },
   methods: {
-    handleDbclick(row, column, event) {
-      console.log("双击被触发了");
-      this.$emit("handleDbclick", row, column, event);
-    },
+    handleDbclick (row, column, event) {
+      console.log('双击被触发了')
+      this.$emit('handleDbclick', row, column, event)
+    }
   },
-  mounted() {
+  mounted () {
     let tableColumn: TableColumn = {
       prop: 'data',
       label: '日期'
     }
-    console.dir(tableColumn);
+    console.dir(tableColumn)
   }
-});
+})
 </script>
-
 
 <style lang="less" scoped>
 .mis-table {

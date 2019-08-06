@@ -6,6 +6,7 @@ import menuList from './data/menu'
 import userList from './data/userlist'
 import syspage1columns from './data/syspage1columns'
 const Mock = require('mockjs')
+const uuidv5 = require('uuid/v5')
 
 Mock.setup({
   timeout: '300~3000'
@@ -91,8 +92,35 @@ Mock.mock(/\/api\/searchuserlist[\s\S]*?/, 'get', (req, res) => {
   }
 })
 
+Mock.mock('/api/savesysuser', 'post', (req, res) => {
+  let _user = JSON.parse(req.body)
+  _user['userid'] = uuidv5('myview admin', uuidv5.DNS)
+  userList.unshift(_user)
+  return {
+    success: true,
+    data: {},
+    msg: '保存成功'
+  }
+})
+
+Mock.mock('/api/deletesysuser', 'delete', (req, res) => {
+  let _selection = JSON.parse(req.body)
+  _selection.map(row => {
+    for (let i = 0; i < userList.length; i++) {
+      if (userList[i].userid === row.userid) {
+        console.log('找到了', row.userid, '----------', i)
+        userList.splice(i, 1)
+      }
+    }
+  })
+  return {
+    success: true,
+    data: {},
+    msg: '删除成功'
+  }
+})
+
 Mock.mock(/\/api\/getcolumns[\s\S]*?/, 'get', (req, res) => {
-  console.dir(req)
   function getUrl (para) {
     var paraArr = req.url.split('?')[1].split('&')
     for (var i = 0; i < paraArr.length; i++) {

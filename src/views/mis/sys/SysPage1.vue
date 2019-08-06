@@ -19,21 +19,21 @@
               <Button type="primary" icon="md-add" @click="handleAdd('searchParams')">新增</Button>
             </FormItem>
             <FormItem>
-              <Button type="primary" icon="ios-create" @click="handleAdd('searchParams')">修改</Button>
+              <Button :disabled="selection.length !== 1" type="primary" icon="ios-create" @click="handleEdit('searchParams')">修改</Button>
             </FormItem>
             <FormItem>
-              <Button type="error" icon="ios-trash" @click="handleAdd('searchParams')">删除</Button>
+              <Button :disabled="selection.length < 1" type="error" icon="ios-trash" @click="handleDelete('searchParams')">删除</Button>
             </FormItem>
             <FormItem>
               <Button type="primary" icon="ios-redo" @click="handleAdd('searchParams')">导出</Button>
             </FormItem>
           </Form>
         </div>
-        <mis-table :data="data" :columns="columns" @handleDbclick="handleDbclick" :loading="searching" />
+        <mis-table :data="data" :columns="columns" @handleDbclick="handleDbclick" @handleSelect="handleSelect" :loading="searching" />
         <white-space />
-        <Page @on-change="handlePageChange" :total="total" show-sizer />
+        <Page show-total @on-change="handlePageChange" :total="total" show-sizer />
       </div>
-      <detail slot="detail" />
+      <detail :ref="detailRef" slot="detail" />
     </mis-tab>
   </div>
 </template>
@@ -44,8 +44,10 @@ import MisTable from '../components/MisTable'
 import MisTab from '../components/MisTab'
 import detail from './SysPage1Detail'
 
+const name = 'syspage1'
+
 export default {
-  name: 'SysPage1',
+  name,
   components: {
     MisTable,
     MisTab,
@@ -56,6 +58,7 @@ export default {
       position: 'list',
       searchParams: {},
       searchUrl: '/api/searchuserlist',
+      deleteUrl: '/api/deletesysuser',
       columnUrl: '/api/getcolumns',
       columnid: 'syspage',
       searching: false,
@@ -63,7 +66,9 @@ export default {
       pageSize: 10,
       total: 0,
       columns: [],
-      data: []
+      data: [],
+      detailRef: `${name}-detailRef`,
+      selection: []
     }
   },
   mounted () {
@@ -75,8 +80,11 @@ export default {
       await this.handleSearch()
     },
     handleDbclick (row, column, event) {
-      console.log('双击被触发了')
       this.position = 'detail'
+      this.$refs[this.detailRef].handleDbclick(row)
+    },
+    handleSelect (selection, row) {
+      this.selection = selection
     },
     getColumns () {
       let params = new URLSearchParams()
@@ -111,7 +119,24 @@ export default {
           }
         })
     },
-    handleAdd () {},
+    handleAdd () {
+      this.position = 'detail'
+      this.$refs[this.detailRef].handleAdd()
+    },
+    handleEdit () {
+      this.position = 'detail'
+      this.$refs[this.detailRef].handleEdit(this.selection[0])
+    },
+    handleDelete () {
+      this.$axios.delete(`${this.deleteUrl}`, {
+        data: this.selection
+      }).then(res => {
+        if (res.success) {
+          this.$Message.success(res.msg)
+          this.handleSearch()
+        }
+      })
+    },
     handleBack () {},
     handlePageChange (currentPage) {
       this.currentPage = currentPage

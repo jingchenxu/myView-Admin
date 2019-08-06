@@ -18,6 +18,15 @@ export const searchUserList = (data: any) => {
   return _get(req)
 }
 
+// 保存用户信息
+export const saveSysUser = (data: any) => {
+  const req = {
+    data,
+    url: '/api/savesysuser'
+  }
+  return _post(req)
+}
+
 // 查询用户列表表头
 export const getColumns = (data: any) => {
   const req = {

@@ -1,9 +1,13 @@
 import CopyRight from './CopyRight'
 import WhiteSpace from './WhiteSpace'
+import Label from './Label'
+import LabelGroup from './LabelGroup'
 
 const components = {
   CopyRight,
-  WhiteSpace
+  WhiteSpace,
+  Label,
+  LabelGroup
 }
 
 const myview = {

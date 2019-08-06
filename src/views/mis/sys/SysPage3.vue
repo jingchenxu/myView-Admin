@@ -38,7 +38,6 @@ import { searchUserList } from '@/api/sysapi'
   }
 })
 export default class SysPage3 extends Vue {
-
   private data () {
     return {
       searchParams: {},
@@ -88,6 +87,5 @@ export default class SysPage3 extends Vue {
     (this as any).currentPage = currentPage
     this.handleSearch()
   }
-  
 }
 </script>

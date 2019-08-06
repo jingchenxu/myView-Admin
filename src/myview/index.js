@@ -2,12 +2,14 @@ import CopyRight from './CopyRight'
 import WhiteSpace from './WhiteSpace'
 import Label from './Label'
 import LabelGroup from './LabelGroup'
+import Card from './Card'
 
 const components = {
   CopyRight,
   WhiteSpace,
   Label,
-  LabelGroup
+  LabelGroup,
+  Card
 }
 
 const myview = {

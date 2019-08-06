@@ -2,10 +2,12 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/views/mis/workspace/Index.vue'
 import Login from '@/views/Login.vue'
+import { LoadingBar } from 'iview'
+import store from '../store'
 
 Vue.use(Router)
 
-export default new Router({
+const router:Router = new Router({
   routes: [{
     path: '/',
     name: 'default',
@@ -44,3 +46,18 @@ export default new Router({
   }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  store.dispatch('LOADINGSTART')
+  LoadingBar.start()
+  setTimeout(next, 1000)
+}) 
+
+router.afterEach((to) => {
+  store.dispatch('LOADINGFINISHED')
+  LoadingBar.finish()
+})
+
+export default router
+
+//# sourceMappingURL=index.js.map

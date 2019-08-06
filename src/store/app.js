@@ -6,7 +6,8 @@ Vue.use(Vuex)
 const state = {
   currentPage: {},
   cachePages: [],
-  expandMisMenu: false
+  expandMisMenu: false,
+  loading: false
 }
 
 const getters = {
@@ -21,6 +22,9 @@ const getters = {
   },
   getExpandMisMenu (state) {
     return state.expandMisMenu
+  },
+  getLoading (state) {
+    return state.loading
   }
 }
 
@@ -28,6 +32,12 @@ const mutations = {
   changeExpandMisMenu (state) {
     let { expandMisMenu } = { ...state }
     state.expandMisMenu = !expandMisMenu
+  },
+  loadingStart (state) {
+    state.loading = true
+  },
+  loadingFinish (state) {
+    state.loading = false
   }
 }
 
@@ -38,6 +48,12 @@ const mutations = {
 const actions = {
   CHANGEEXPANDMISMENU (context) {
     context.commit('changeExpandMisMenu')
+  },
+  LOADINGSTART (context) {
+    context.commit('loadingStart')
+  },
+  LOADINGFINISHED (context) {
+    context.commit('loadingFinish')
   }
 }
 

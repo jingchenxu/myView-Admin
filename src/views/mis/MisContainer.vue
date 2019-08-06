@@ -28,7 +28,7 @@
             <Button long @click="handleExit" type="text">退出</Button>
           </el-popover>
         </el-header>
-        <el-main>
+        <el-main element-loading-spinner="iconfont mvloading loading-animation" v-loading="getLoading">
           <mis-tab-navi />
           <router-view v-if="getLogin" />
           <copy-right />
@@ -57,7 +57,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getLogin', 'getExpandMisMenu'])
+    ...mapGetters(['getLogin', 'getExpandMisMenu', 'getLoading'])
   },
   methods: {
     handleSiderTrigger () {

@@ -1,2 +1,14 @@
 @import "~iview/src/styles/index.less";
 @import "./theme.less";
+
+@keyframes loading-rotate{
+  from{transform:rotate(0)}
+  to{transform:rotate(360deg)}
+}
+
+.loading-animation {
+  font-size: 20px;
+  display: inline-block;
+  -webkit-animation: loading-rotate 2s linear infinite;
+  animation: loading-rotate 2s linear infinite;
+}

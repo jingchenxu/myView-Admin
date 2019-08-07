@@ -1,8 +1,8 @@
-import CopyRight from './CopyRight'
-import WhiteSpace from './WhiteSpace'
-import Label from './Label'
-import LabelGroup from './LabelGroup'
-import Card from './Card'
+import CopyRight from './components/CopyRight'
+import WhiteSpace from './components/WhiteSpace'
+import Label from './components/Label'
+import LabelGroup from './components/LabelGroup'
+import Card from '..component/Card'
 
 const components = {
   CopyRight,

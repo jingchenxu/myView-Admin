@@ -16,11 +16,9 @@ export default {
 }
 </script>
 
-
 <style lang="less" scoped>
 .article-item {
   min-height: 200px;
   padding: 20px;
 }
 </style>
-

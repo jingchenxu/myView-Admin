@@ -20,19 +20,22 @@
       <Divider />
       <h3>退货商品</h3>
       <return-goods/>
+      <white-space/>
       <h3>退货进度</h3>
-      <return-goods/>
+      <return-schedule/>
     </Card>
   </div>
 </template>
 
 <script>
 import ReturnGoods from './components/ReturnGoods'
+import ReturnSchedule from './components/ReturnSchedule'
 
 export default {
   name: 'BaseDetail',
   components: {
-    ReturnGoods
+    ReturnGoods,
+    ReturnSchedule
   },
   data () {
     return {}
@@ -49,5 +52,3 @@ export default {
   line-height: 40px;
 }
 </style>
-
-

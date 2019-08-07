@@ -66,13 +66,13 @@ export default {
   methods: {
     handleBack () {
       this.$Modal.confirm({
-          title: '确认返回列表页',
-          content: '<p>表单页内容尚未保存，请确认是否返回列表页！</p>',
-          onOk: () => {
-            this.$parent.$parent.position = 'list'
-            this.$parent.$parent.handleSearch()
-          }
-      });
+        title: '确认返回列表页',
+        content: '<p>表单页内容尚未保存，请确认是否返回列表页！</p>',
+        onOk: () => {
+          this.$parent.$parent.position = 'list'
+          this.$parent.$parent.handleSearch()
+        }
+      })
     },
     handleAdd () {
       // TODO 重置表单

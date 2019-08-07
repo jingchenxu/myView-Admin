@@ -5,24 +5,24 @@
 </template>
 <script>
 export default {
-  data() {
+  data () {
     return {
       columns: [
         {
-          title: "商品编号",
-          key: "goodid"
+          title: '商品编号',
+          key: 'goodid'
         },
         {
-          title: "商品名称",
-          key: "goodname"
+          title: '商品名称',
+          key: 'goodname'
         },
         {
-          title: "商品条码",
-          key: "goodcode"
+          title: '商品条码',
+          key: 'goodcode'
         },
         {
-          title: "单价",
-          key: "goodprice",
+          title: '单价',
+          key: 'goodprice',
           render: (h, params) => {
             let _goodprice = Number(params.row.goodprice).toFixed(2)
             return h('span', _goodprice)
@@ -43,7 +43,7 @@ export default {
       ],
       data: [
         {
-          goodid: "1234561",
+          goodid: '1234561',
           goodname: '矿泉水550ml',
           goodcode: '12341234213',
           goodprice: 2.00,
@@ -51,31 +51,31 @@ export default {
           goodtotal: 2.00
         },
         {
-          goodid: "1234562",
-          goodname: '矿泉水550ml',
-          goodcode: '12341234213',
-          goodprice: 2.00,
-          goodnumber: 1,
-          goodtotal: 2.00
+          goodid: '1234562',
+          goodname: '凉茶300ml',
+          goodcode: '1241432143214322',
+          goodprice: 3.00,
+          goodnumber: 3,
+          goodtotal: 6.00
         },
         {
-          goodid: "1234563",
-          goodname: '矿泉水550ml',
+          goodid: '1234563',
+          goodname: '上好佳',
           goodcode: '12341234213',
-          goodprice: 2.00,
-          goodnumber: 1,
-          goodtotal: 2.00
+          goodprice: 7.00,
+          goodnumber: 4,
+          goodtotal: 28.00
         },
         {
-          goodid: "1234564",
-          goodname: '矿泉水550ml',
+          goodid: '1234564',
+          goodname: '好丽友',
           goodcode: '12341234213',
-          goodprice: 2.00,
-          goodnumber: 1,
-          goodtotal: 2.00
-        },
+          goodprice: 8.50,
+          goodnumber: 3,
+          goodtotal: 25.5
+        }
       ]
-    };
+    }
   }
-};
+}
 </script>

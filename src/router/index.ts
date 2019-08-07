@@ -36,8 +36,8 @@ const router:Router = new Router({
       { path: 'usercenter', name: 'usercenter', component: () => import('@/views/mis/set/UserCenter.vue') },
       { path: 'usersetting', name: 'usersetting', component: () => import('@/views/mis/set/UserSetting.vue') },
       { path: 'notfound', name: 'notfound', component: () => import('@/views/mis/exception/NotFound.vue') },
-      { path: 'basedetail', name: 'basedetail', component: () => import('@/views/mis/det/BaseDetail.vue')},
-      { path: 'advancedetail', name: 'advancedetail', component: () => import('@/views/mis/det/AdvanceDetail.vue')},
+      { path: 'basedetail', name: 'basedetail', component: () => import('@/views/mis/det/BaseDetail.vue') },
+      { path: 'advancedetail', name: 'advancedetail', component: () => import('@/views/mis/det/AdvanceDetail.vue') }
     ]
   },
   {
@@ -50,8 +50,8 @@ const router:Router = new Router({
 router.beforeEach((to, from, next) => {
   store.dispatch('LOADINGSTART')
   LoadingBar.start()
-  setTimeout(next, 1000)
-}) 
+  setTimeout(next, 500)
+})
 
 router.afterEach((to) => {
   store.dispatch('LOADINGFINISHED')
@@ -60,4 +60,4 @@ router.afterEach((to) => {
 
 export default router
 
-//# sourceMappingURL=index.js.map
+// # sourceMappingURL=index.js.map

@@ -7,16 +7,15 @@
         </span>
         <div class="tab-navi-scroll">
           <div class="tab-navi">
-            <div class="tab-item">测试菜单1<Icon style="margin-right: -6px;" type="md-close" /></div>
+            <div :key="menu.mkey" @click="handleTabClick(menu)" v-for="(menu, index) of naviList" class="tab-item">{{menu.mname}}<Icon type="md-close" /></div>
+            <!-- <div class="tab-item">测试菜单1<Icon type="md-close" /></div>
             <div class="tab-item">测试菜单1<Icon type="md-close" /></div>
             <div class="tab-item">测试菜单1<Icon type="md-close" /></div>
             <div class="tab-item">测试菜单1<Icon type="md-close" /></div>
             <div class="tab-item">测试菜单1<Icon type="md-close" /></div>
             <div class="tab-item">测试菜单1<Icon type="md-close" /></div>
             <div class="tab-item">测试菜单1<Icon type="md-close" /></div>
-            <div class="tab-item">测试菜单1<Icon type="md-close" /></div>
-            <div class="tab-item">测试菜单1<Icon type="md-close" /></div>
-            <div class="tab-item">测试菜单1<Icon type="md-close" /></div>
+            <div class="tab-item">测试菜单1<Icon type="md-close" /></div> -->
           </div>
         </div>
         <span @click="handleNext" class="tab-navi-next">
@@ -30,12 +29,25 @@
 <script>
 export default {
   name: 'MisTabNavi',
+  props: {
+    naviList: {
+      type: Array
+    },
+    activeNavi: {
+      type: Object
+    }
+  },
   methods: {
     handlePrev () {
 
     },
     handleNext () {
 
+    },
+    handleTabClick (menu) {
+      this.$router.push({
+        name: menu.mkey
+      })
     }
   }
 }
@@ -73,7 +85,7 @@ export default {
         position: relative;
         transition: transform 0.5s ease-in-out;
         .tab-item {
-          width: 100px;
+          min-width: 100px;
           margin-right: 10px;
           height: 32px;
           line-height: 32px;

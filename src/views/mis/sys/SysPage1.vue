@@ -29,7 +29,7 @@
             </FormItem>
           </Form>
         </div>
-        <mis-table :data="data" :columns="columns" @handleDbclick="handleDbclick" @handleSelect="handleSelect" :loading="searching" />
+        <mis-table :tabledata="data" :columns="columns" @handleDbclick="handleDbclick" @handleSelect="handleSelect" :loading="searching" />
         <white-space />
         <Page show-total @on-change="handlePageChange" :total="total" show-sizer />
       </div>

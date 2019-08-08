@@ -9,6 +9,7 @@
     "experimentalDecorators": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "strictPropertyInitialization": false, // FIXME 需要解决的问题
     "sourceMap": true,
     "baseUrl": ".",
     "types": [

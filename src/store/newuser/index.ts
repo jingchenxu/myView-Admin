@@ -1,25 +1,21 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import { State, CurrentUser } from './interface'
+import { Commit } from 'vuex'
 
-Vue.use(Vuex)
+const currentUser: CurrentUser = {
+  user: {},
+  menu: [],
+  dept: {}
+}
 
-const state = {
-  currentUser: {
-    user: {},
-    menu: [],
-    dept: {}
-  },
+const state: State = {
+  currentUser,
   isLogin: false
 }
 
 const getters = {
-  getUser (state) {
-    return state.currentUser.user
-  },
-  getMenu (state) {
-    return state.currentUser.menu
-  },
-  getMenuTree (state) {
+  getUser: (state: State) => state.currentUser.user,
+  getMenu: (state: State) => state.currentUser.menu,
+  getMenuTree: (state: State) => {
     let { menu } = { ...state.currentUser }
     // 找到一级菜单
     let menuTree = menu.filter(_menu => _menu.mlevel === 1)
@@ -29,39 +25,35 @@ const getters = {
     }
     return menuTree
   },
-  getDept (state) {
-    return state.currentUser.dept
-  },
-  getLogin (state) {
-    return state.isLogin
-  }
+  getDept: (state: State) => state.currentUser.dept,
+  getLogin: (state: State) => state.isLogin
 }
 
 const mutations = {
-  updateCurrentUser (state, currentUser) {
+  updateCurrentUser: (state: State, currentUser: CurrentUser) => {
     state.currentUser = currentUser
   },
-  changeLogin (state) {
+  changeLogin: (state: State) => {
     const { isLogin } = { ...state }
     state.isLogin = !isLogin
   }
 }
 
 const actions = {
-  UPDATECURRENTUSER (context, currentUser) {
+  UPDATECURRENTUSER (context: {commit: Commit}, currentUser: CurrentUser) {
     context.commit('updateCurrentUser', currentUser)
     context.commit('changeLogin', currentUser)
   },
-  CHANGELOGIN (context) {
+  CHANGELOGIN (context: {commit: Commit}) {
     context.commit('changeLogin')
   }
 }
 
-const usernew = {
+const newuser = {
   state,
   getters,
   mutations,
   actions
 }
 
-export default usernew
+export default newuser

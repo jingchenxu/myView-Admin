@@ -18,7 +18,7 @@
         </FormItem>
       </Form>
     </div>
-    <mis-table :data="data" :loading="searching" />
+    <mis-table :tabledata="data" :loading="searching" />
     <white-space />
     <Page @on-change="handlePageChange" :total="total" show-sizer />
   </mis-simple-list>

@@ -29,7 +29,7 @@
           </el-popover>
         </el-header>
         <el-main element-loading-spinner="iconfont mvloading loading-animation" v-loading="getLoading">
-          <mis-tab-navi />
+          <mis-tab-navi :navi-list="getCachePages" :active-navi="getCurrentPage" />
           <router-view v-if="getLogin" />
           <copy-right />
         </el-main>
@@ -56,8 +56,25 @@ export default {
       showSetting: false
     }
   },
+  watch: {
+    $route: {
+      handler (to, from) {
+        let getMenu = this.getMenu
+        let menu = false
+        for (let _menu of getMenu) {
+          if (_menu.mkey === to.name) {
+            menu = _menu
+          }
+        }
+        if (menu) {
+          this.$store.dispatch('UPDATECURRENTPAGE', menu)
+        }
+      },
+      immediate: true
+    }
+  },
   computed: {
-    ...mapGetters(['getLogin', 'getExpandMisMenu', 'getLoading'])
+    ...mapGetters(['getLogin', 'getExpandMisMenu', 'getLoading', 'getMenu', 'getCurrentPage', 'getCachePages'])
   },
   methods: {
     handleSiderTrigger () {

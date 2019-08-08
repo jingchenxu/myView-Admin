@@ -2,7 +2,7 @@ import CopyRight from './components/CopyRight'
 import WhiteSpace from './components/WhiteSpace'
 import Label from './components/Label'
 import LabelGroup from './components/LabelGroup'
-import Card from '..component/Card'
+import Card from './components/Card'
 
 const components = {
   CopyRight,

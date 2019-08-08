@@ -33,33 +33,27 @@
   </div>
 </template>
 
-<script>
-import { mapGetters } from 'vuex'
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import { State, Mutation, Getter } from 'vuex-class'
 
-export default {
-  name: 'MisMenu',
-  data () {
-    return {
-    }
-  },
-  computed: {
-    ...mapGetters([
-      'getExpandMisMenu',
-      'getMenuTree'
-    ])
-  },
-  methods: {
-    handleOpen (key, keyPath) {
-      console.log(key, keyPath)
-    },
-    handleClose (key, keyPath) {
-      console.log(key, keyPath)
-    },
-    handleSelect (index, indexPath, item) {
-      this.$router.push({
-        name: index
-      })
-    }
+@Component({
+  name: 'MisMenu'
+})
+export default class MisMenu extends Vue {
+  @Getter private getExpandMisMenu: Boolean
+  @Getter private getMenuTree: Boolean
+
+  private handleOpen (key: String, keyPath: String) {
+    console.log(key, keyPath)
+  }
+  private handleClose (key: String, keyPath: String) {
+    console.log(key, keyPath)
+  }
+  private handleSelect (index: any, indexPath: String, item: any) {
+    this.$router.push({
+      name: index
+    })
   }
 }
 </script>

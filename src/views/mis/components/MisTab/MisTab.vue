@@ -13,15 +13,12 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'MisTab',
-  props: {
-    activeTab: {
-      type: String,
-      default: 'list'
-    }
-  }
+<script lang="ts">
+import { Component, Vue, Watch, Prop } from 'vue-property-decorator'
+
+@Component({})
+export default class MisTab extends Vue {
+  @Prop() private activeTab: String = 'list'
 }
 </script>
 

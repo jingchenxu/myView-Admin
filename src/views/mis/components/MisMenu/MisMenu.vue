@@ -19,15 +19,13 @@
       :index="menu.mkey"
       :key="menu.mkey">
         <template slot="title">
-          <Icon style="margin-right: 8px;" :type="menu.micon" />
+          <Icon style="margin-right: 5px;" :type="menu.micon" />
           <span slot="title">{{menu.mname}}</span>
         </template>
-        <!-- <el-menu-item-group> -->
           <el-menu-item
           v-for="secondMenu of menu.child"
           :index="secondMenu.mkey"
           :key="secondMenu.mkey">{{secondMenu.mname}}</el-menu-item>
-        <!-- </el-menu-item-group> -->
       </el-submenu>
     </el-menu>
   </div>

@@ -36,6 +36,7 @@ const router:Router = new Router({
       { path: 'usercenter', name: 'usercenter', component: () => import('@/views/mis/set/UserCenter.vue') },
       { path: 'usersetting', name: 'usersetting', component: () => import('@/views/mis/set/UserSetting.vue') },
       { path: 'notfound', name: 'notfound', component: () => import('@/views/mis/exception/NotFound.vue') },
+      { path: 'servererror', name: 'servererror', component: () => import('@/views/mis/exception/ServerError.vue') },
       { path: 'basedetail', name: 'basedetail', component: () => import('@/views/mis/det/BaseDetail.vue') },
       { path: 'advancedetail', name: 'advancedetail', component: () => import('@/views/mis/det/AdvanceDetail.vue') }
     ]

@@ -12,7 +12,10 @@ const state: State = {
 const getters = {
   getCurrentPage: (state: State) => state.currentPage,
   getCachePages: (state: State) => state.cachePages,
-  getCachePagesKeys: (state: State) => state.cachePages,
+  getCachePagesKeys: (state: State) => {
+    let cachePagesKeys = state.cachePages.map(page => page.mkey)
+    return cachePagesKeys
+  },
   getExpandMisMenu: (state: State) => state.expandMisMenu,
   getLoading: (state: State) => state.loading
 }
@@ -47,6 +50,7 @@ const mutations = {
 
 const actions = {
   UPDATECURRENTPAGE: (context: { commit: Commit }, menu: Menu) => {
+    console.dir(menu)
     context.commit('updateCurrentPage', menu)
     context.commit('updateCachePages', menu)
   },

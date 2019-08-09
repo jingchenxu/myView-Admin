@@ -28,9 +28,11 @@
             <Button long @click="handleExit" type="text">退出</Button>
           </el-popover>
         </el-header>
-        <el-main element-loading-spinner="iconfont mvloading loading-animation" v-loading="getLoading">
+        <el-main>
           <mis-tab-navi :navi-list="getCachePages" :active-navi="getCurrentPage" />
-          <router-view v-if="getLogin" />
+          <keep-alive>
+            <router-view v-if="getLogin" :include="getCachePagesKeys" element-loading-spinner="iconfont mvloading loading-animation" v-loading="getLoading" />
+          </keep-alive>
           <copy-right />
         </el-main>
       </el-container>
@@ -74,7 +76,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getLogin', 'getExpandMisMenu', 'getLoading', 'getMenu', 'getCurrentPage', 'getCachePages'])
+    ...mapGetters(['getLogin', 'getExpandMisMenu', 'getLoading', 'getMenu', 'getCurrentPage', 'getCachePages', 'getCachePagesKeys'])
   },
   methods: {
     handleSiderTrigger () {
@@ -95,6 +97,17 @@ export default {
       this.$axios.get('/api/getonlineuser').then(res => {
         if (res.success) {
           this.$store.dispatch('UPDATECURRENTUSER', res.data)
+          console.dir(this.$route)
+          let getMenu = this.getMenu
+          let menu = false
+          for (let _menu of getMenu) {
+            if (_menu.mkey === this.$route.name) {
+              menu = _menu
+            }
+          }
+          if (menu) {
+            this.$store.dispatch('UPDATECURRENTPAGE', menu)
+          }
         }
       })
     }

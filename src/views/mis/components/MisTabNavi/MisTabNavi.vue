@@ -7,15 +7,7 @@
         </span>
         <div class="tab-navi-scroll">
           <div class="tab-navi">
-            <div :key="menu.mkey" @click="handleTabClick(menu)" v-for="(menu, index) of naviList" class="tab-item">{{menu.mname}}<Icon type="md-close" /></div>
-            <!-- <div class="tab-item">测试菜单1<Icon type="md-close" /></div>
-            <div class="tab-item">测试菜单1<Icon type="md-close" /></div>
-            <div class="tab-item">测试菜单1<Icon type="md-close" /></div>
-            <div class="tab-item">测试菜单1<Icon type="md-close" /></div>
-            <div class="tab-item">测试菜单1<Icon type="md-close" /></div>
-            <div class="tab-item">测试菜单1<Icon type="md-close" /></div>
-            <div class="tab-item">测试菜单1<Icon type="md-close" /></div>
-            <div class="tab-item">测试菜单1<Icon type="md-close" /></div> -->
+            <div :class="activeMKey === menu.mkey ? 'active' : ''" :key="menu.mkey" @click="handleTabClick(menu)" v-for="(menu, index) of naviList" class="tab-item">{{menu.mname}}<Icon type="md-close" /></div>
           </div>
         </div>
         <span @click="handleNext" class="tab-navi-next">
@@ -35,6 +27,11 @@ export default {
     },
     activeNavi: {
       type: Object
+    }
+  },
+  computed: {
+    activeMKey () {
+      return this.activeNavi.mkey
     }
   },
   methods: {
@@ -96,6 +93,9 @@ export default {
           position: relative;
         }
         .tab-item:hover {
+          background-color: #f5f7f9;
+        }
+        .active {
           background-color: #f5f7f9;
         }
       }

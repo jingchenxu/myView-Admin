@@ -145,7 +145,7 @@
   },
   {
     "mid": 41,
-    "mkey": "404",
+    "mkey": "notfound",
     "mname": "notfound",
     "micon": "md app",
     "mpath": "/404",
@@ -157,7 +157,7 @@
   },
   {
     "mid": 42,
-    "mkey": "505",
+    "mkey": "servererror",
     "mname": "服务端异常",
     "micon": "md app",
     "mpath": "/505",

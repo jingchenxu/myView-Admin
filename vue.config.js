@@ -8,6 +8,7 @@ module.exports = {
     }
   },
   outputDir: path.resolve(__dirname, './docs'),
+  publicPath: './',
   configureWebpack: config => {
     if (process.env.NODE_ENV === 'production') {
       // 生产环境相关配置

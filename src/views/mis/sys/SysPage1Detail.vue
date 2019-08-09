@@ -54,7 +54,7 @@ export default {
       disabled: false,
       formRef: `${name}-formRef`,
       rule: getRules(),
-      saveUrl: 'api/savesysuser',
+      saveUrl: '/api/savesysuser',
       formInit: () => {
         return new SysUser()
       }

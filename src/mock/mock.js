@@ -23,8 +23,16 @@ Mock.mock('/api/data', 'get', (req, res) => {
 })
 
 Mock.mock('/api/login', 'post', (req, res) => {
+  let login = JSON.parse(req.body)
   // 返回用户的基本信息
   let user = new SysUser()
+  if (login.user !== 'mvadmin' || login.password !== 'mvadmin') {
+    return {
+      success: false,
+      data: {},
+      msg: '用户名/密码错误'
+    }
+  }
   // 返回用户的菜单信息
   let menu = menuList
   // TODO 返回用户的菜单操作按钮信息

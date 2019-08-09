@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.b42d0aa2d78a57676034897b8be5db38.js"
+  "precache-manifest.2b73da64daac40e3f236a081ae6f671d.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "myView-admin"});

@@ -7,12 +7,12 @@
           <img src="../../public/misimg/myView_Admin.png"/>
         </div>
         <FormItem prop="user">
-          <Input size="large" type="text" v-model="form.user" placeholder="Username">
+          <Input size="large" type="text" v-model="form.user" placeholder="用户名">
             <Icon type="ios-person-outline" slot="prepend"></Icon>
           </Input>
         </FormItem>
         <FormItem prop="password">
-          <Input size="large" type="password" v-model="form.password" placeholder="Password">
+          <Input @keyup.enter.native="handleLogin('login')" size="large" type="password" v-model="form.password" placeholder="密码">
             <Icon type="ios-lock-outline" slot="prepend"></Icon>
           </Input>
         </FormItem>
@@ -35,6 +35,8 @@ export default {
   data () {
     return {
       form: {
+        user: 'mvadmin',
+        password: 'mvadmin',
         rememberPassword: false
       },
       rule: {},
@@ -52,6 +54,8 @@ export default {
           this.$Message.success(res.msg)
           this.$store.dispatch('UPDATECURRENTUSER', res.data)
           this.linkToMis()
+        } else {
+          this.$Message.error(res.msg)
         }
       })
     },

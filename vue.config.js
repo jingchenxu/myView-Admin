@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   pages: {
     index: {
@@ -5,9 +7,10 @@ module.exports = {
       entry: 'src/main.js'
     }
   },
+  outputDir: path.resolve(__dirname, './docs'),
   configureWebpack: config => {
     if (process.env.NODE_ENV === 'production') {
-      // 为生产环境修改配置...
+      // 生产环境相关配置
     } else {
       // 为开发环境修改配置...
     }

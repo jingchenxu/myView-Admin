@@ -54,7 +54,7 @@ export default {
 .mis-tab-navi {
   width: calc(100% - 284px);
   height: 44px;
-  background-color: transparent;
+  background-color: #f5f7f9;
   position: fixed;
   margin: 0 12px;
   z-index: 2;

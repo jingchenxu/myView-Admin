@@ -9,7 +9,8 @@
     "mrender": "default",
     "mpid": 1,
     "mlevel": 1,
-    "mstatus": 1
+    "mstatus": 1,
+    "morder": 0
   },
   {
     "mid": 11,
@@ -21,7 +22,8 @@
     "mrender": "default",
     "mpid": 1,
     "mlevel": 2,
-    "mstatus": 1
+    "mstatus": 1,
+    "morder": 0
   },
   {
     "mid": 12,
@@ -33,7 +35,8 @@
     "mrender": "default",
     "mpid": 1,
     "mlevel": 2,
-    "mstatus": 1
+    "mstatus": 1,
+    "morder": 0
   },
   {
     "mid": 13,
@@ -45,7 +48,8 @@
     "mrender": "default",
     "mpid": 1,
     "mlevel": 2,
-    "mstatus": 1
+    "mstatus": 1,
+    "morder": 0
   },
   {
     "mid": 2,
@@ -57,7 +61,8 @@
     "mrender": "default",
     "mpid": 2,
     "mlevel": 1,
-    "mstatus": 1
+    "mstatus": 1,
+    "morder": 0
   },
   {
     "mid": 21,
@@ -69,7 +74,8 @@
     "mrender": "default",
     "mpid": 2,
     "mlevel": 2,
-    "mstatus": 1
+    "mstatus": 1,
+    "morder": 0
   },
   {
     "mid": 22,
@@ -81,7 +87,8 @@
     "mrender": "default",
     "mpid": 2,
     "mlevel": 2,
-    "mstatus": 1
+    "mstatus": 1,
+    "morder": 0
   },
   {
     "mid": 23,
@@ -93,7 +100,8 @@
     "mrender": "default",
     "mpid": 2,
     "mlevel": 2,
-    "mstatus": 1
+    "mstatus": 1,
+    "morder": 0
   },
   {
     "mid": 3,
@@ -105,7 +113,8 @@
     "mrender": "default",
     "mpid": 3,
     "mlevel": 1,
-    "mstatus": 1
+    "mstatus": 1,
+    "morder": 0
   },
   {
     "mid": 31,
@@ -117,7 +126,8 @@
     "mrender": "default",
     "mpid": 3,
     "mlevel": 2,
-    "mstatus": 1
+    "mstatus": 1,
+    "morder": 0
   },
   {
     "mid": 32,
@@ -129,7 +139,8 @@
     "mrender": "default",
     "mpid": 3,
     "mlevel": 2,
-    "mstatus": 1
+    "mstatus": 1,
+    "morder": 0
   },
   {
     "mid": 4,
@@ -141,7 +152,8 @@
     "mrender": "default",
     "mpid": 4,
     "mlevel": 1,
-    "mstatus": 1
+    "mstatus": 1,
+    "morder": 0
   },
   {
     "mid": 41,
@@ -153,7 +165,8 @@
     "mrender": "default",
     "mpid": 4,
     "mlevel": 2,
-    "mstatus": 1
+    "mstatus": 1,
+    "morder": 0
   },
   {
     "mid": 42,
@@ -165,7 +178,8 @@
     "mrender": "default",
     "mpid": 4,
     "mlevel": 2,
-    "mstatus": 1
+    "mstatus": 1,
+    "morder": 0
   },
   {
     "mid": 5,
@@ -177,7 +191,8 @@
     "mrender": "default",
     "mpid": 5,
     "mlevel": 1,
-    "mstatus": 1
+    "mstatus": 1,
+    "morder": 0
   },
   {
     "mid": 51,
@@ -189,7 +204,8 @@
     "mrender": "default",
     "mpid": 5,
     "mlevel": 2,
-    "mstatus": 1
+    "mstatus": 1,
+    "morder": 0
   },
   {
     "mid": 52,
@@ -201,7 +217,8 @@
     "mrender": "default",
     "mpid": 5,
     "mlevel": 2,
-    "mstatus": 1
+    "mstatus": 1,
+    "morder": 0
   },
   {
     "mid": 6,
@@ -213,7 +230,8 @@
     "mrender": "default",
     "mpid": 6,
     "mlevel": 1,
-    "mstatus": 1
+    "mstatus": 1,
+    "morder": 0
   },
   {
     "mid": 61,
@@ -225,7 +243,8 @@
     "mrender": "default",
     "mpid": 6,
     "mlevel": 2,
-    "mstatus": 1
+    "mstatus": 1,
+    "morder": 0
   },
   {
     "mid": 62,
@@ -237,6 +256,59 @@
     "mrender": "default",
     "mpid": 6,
     "mlevel": 2,
-    "mstatus": 1
+    "mstatus": 1,
+    "morder": 0
+  },
+  {
+    "mid": 7,
+    "mkey": "for",
+    "mname": "表单页",
+    "micon": " iconfont mvbiaodan",
+    "mpath": "/det",
+    "mtip": "详情页",
+    "mrender": "default",
+    "mpid": 7,
+    "mlevel": 1,
+    "mstatus": 1,
+    "morder": 0
+  },
+  {
+    "mid": 71,
+    "mkey": "basic-form",
+    "mname": "基础表单",
+    "micon": "md app",
+    "mpath": "/404",
+    "mtip": "notfound",
+    "mrender": "default",
+    "mpid": 7,
+    "mlevel": 2,
+    "mstatus": 1,
+    "morder": 0
+  },
+  {
+    "mid": 72,
+    "mkey": "step-form",
+    "mname": "步骤表单",
+    "micon": "md app",
+    "mpath": "/505",
+    "mtip": "服务端异常",
+    "mrender": "default",
+    "mpid": 7,
+    "mlevel": 2,
+    "mstatus": 1,
+    "morder": 0
+  },
+  {
+    "mid": 73,
+    "mkey": "advance-form",
+    "mname": "复杂表单",
+    "micon": "md app",
+    "mpath": "/505",
+    "mtip": "服务端异常",
+    "mrender": "default",
+    "mpid": 7,
+    "mlevel": 2,
+    "mstatus": 1,
+    "morder": 0
   }
 ]

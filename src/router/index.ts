@@ -38,7 +38,10 @@ const router:Router = new Router({
       { path: 'notfound', name: 'notfound', component: () => import('@/views/mis/exception/NotFound.vue') },
       { path: 'servererror', name: 'servererror', component: () => import('@/views/mis/exception/ServerError.vue') },
       { path: 'basedetail', name: 'basedetail', component: () => import('@/views/mis/det/BaseDetail.vue') },
-      { path: 'advancedetail', name: 'advancedetail', component: () => import('@/views/mis/det/AdvanceDetail.vue') }
+      { path: 'advancedetail', name: 'advancedetail', component: () => import('@/views/mis/det/AdvanceDetail.vue') },
+      { path: 'basic-form', name: 'basic-form', component: () => import('@/views/mis/for/BasicForm.vue') },
+      { path: 'step-form', name: 'step-form', component: () => import('@/views/mis/for/StepForm.vue') },
+      { path: 'advance-form', name: 'advance-form', component: () => import('@/views/mis/for/AdvanceForm.vue') },
     ]
   },
   {

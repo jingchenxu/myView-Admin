@@ -34,7 +34,7 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx", "src/main.js", "src/router.js", "src/views/mis/components/MisTable/TableColumnItem.js"
+    "tests/**/*.tsx", "src/main.js", "src/router.js", "src/views/mis/components/MisTable/TableColumnItem.js", "src/views/mis/components/MisTable/Column.js"
   ],
   "exclude": [
     "node_modules"

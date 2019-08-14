@@ -21,5 +21,3 @@ export default class NotFound extends Vue {
   text-align: center;
 }
 </style>
-
-

@@ -64,86 +64,86 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import MisPageTitle from "../components/MisPageTitle";
+import { Component, Vue } from 'vue-property-decorator'
+import MisPageTitle from '../components/MisPageTitle'
 
 @Component({
-  name: "BasicForm",
+  name: 'BasicForm',
   components: {
     MisPageTitle
   }
 })
 export default class BasicForm extends Vue {
   formValidate = {
-    name: "",
-    mail: "",
-    city: "",
-    gender: "",
+    name: '',
+    mail: '',
+    city: '',
+    gender: '',
     interest: [],
-    date: "",
-    time: "",
-    desc: ""
+    date: '',
+    time: '',
+    desc: ''
   };
   ruleValidate = {
     name: [
-      { required: true, message: "The name cannot be empty", trigger: "blur" }
+      { required: true, message: 'The name cannot be empty', trigger: 'blur' }
     ],
     mail: [
-      { required: true, message: "Mailbox cannot be empty", trigger: "blur" },
-      { type: "email", message: "Incorrect email format", trigger: "blur" }
+      { required: true, message: 'Mailbox cannot be empty', trigger: 'blur' },
+      { type: 'email', message: 'Incorrect email format', trigger: 'blur' }
     ],
     city: [
-      { required: true, message: "Please select the city", trigger: "change" }
+      { required: true, message: 'Please select the city', trigger: 'change' }
     ],
     gender: [
-      { required: true, message: "Please select gender", trigger: "change" }
+      { required: true, message: 'Please select gender', trigger: 'change' }
     ],
     interest: [
       {
         required: true,
-        type: "array",
+        type: 'array',
         min: 1,
-        message: "Choose at least one hobby",
-        trigger: "change"
+        message: 'Choose at least one hobby',
+        trigger: 'change'
       },
       {
-        type: "array",
+        type: 'array',
         max: 2,
-        message: "Choose two hobbies at best",
-        trigger: "change"
+        message: 'Choose two hobbies at best',
+        trigger: 'change'
       }
     ],
     date: [
       {
         required: true,
-        type: "date",
-        message: "Please select the date",
-        trigger: "change"
+        type: 'date',
+        message: 'Please select the date',
+        trigger: 'change'
       }
     ],
     time: [
       {
         required: true,
-        type: "string",
-        message: "Please select time",
-        trigger: "change"
+        type: 'string',
+        message: 'Please select time',
+        trigger: 'change'
       }
     ],
     desc: [
       {
         required: true,
-        message: "Please enter a personal introduction",
-        trigger: "blur"
+        message: 'Please enter a personal introduction',
+        trigger: 'blur'
       },
       {
-        type: "string",
+        type: 'string',
         min: 20,
-        message: "Introduce no less than 20 words",
-        trigger: "blur"
+        message: 'Introduce no less than 20 words',
+        trigger: 'blur'
       }
     ]
   };
-  handleSubmit(name: any) {
+  handleSubmit (name: any) {
     // this.$refs[name].validate((valid) => {
     //     if (valid) {
     //         this.$Message.success('Success!');
@@ -152,7 +152,7 @@ export default class BasicForm extends Vue {
     //     }
     // })
   }
-  handleReset(name: any) {
+  handleReset (name: any) {
     // this.$refs[name].resetFields();
   }
 }

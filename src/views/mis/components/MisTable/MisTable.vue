@@ -9,11 +9,12 @@
     v-loading="loading"
     @select="handleSelect"
     @row-dblclick="handleDbclick">
-      <el-table-column type="index" align="center" width="50"/>
+      <Column :key="index" :column-item="columnItem" v-for="(columnItem, index) of columnList"/>
+      <!-- <el-table-column type="index" align="center" width="50"/>
       <el-table-column type="selection" align="center" width="55"/>
       <el-table-column prop="date" :formatter="dataFormat" label="日期" width="180"/>
       <el-table-column prop="name" label="姓名" width="180"/>
-      <el-table-column prop="address" label="地址"/>
+      <el-table-column prop="address" label="地址"/> -->
     </el-table>
   </div>
 </template>
@@ -22,9 +23,15 @@
 import { Component, Vue, Prop } from 'vue-property-decorator'
 import { State, Getter, Mutation, Action } from 'vuex-class'
 import moment from 'moment'
-import TableColumn from './TableColumn'
+import TableColumn from './ColumnProps'
+import Column from './Column'
 
-@Component
+@Component({
+  name: 'MisTable',
+  components: {
+    Column
+  }
+})
 export default class MisTable extends Vue {
   @Prop({ type: Boolean, default: true })
   private stripe: Boolean = true
@@ -34,6 +41,34 @@ export default class MisTable extends Vue {
   private columns: () => []
   @Prop({ default: [] })
   private tabledata: Array<any>
+
+  private columnList = [
+    {
+      type: 'index',
+      align: 'center',
+      width: 50
+    },
+    {
+      type: 'selection',
+      align: 'center',
+      width: 50
+    },
+    {
+      prop: 'date',
+      formatter: this.dataFormat,
+      label: '日期',
+      width: 180
+    },
+    {
+      prop: 'name',
+      label: '姓名',
+      width: 180
+    },
+    {
+      prop: 'address',
+      label: '地址'
+    }
+  ]
 
   private handleDbclick (row: any, column: any, event: any) {
     console.log('双击被触发了')

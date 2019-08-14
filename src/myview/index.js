@@ -3,13 +3,17 @@ import WhiteSpace from './components/WhiteSpace'
 import Label from './components/Label'
 import LabelGroup from './components/LabelGroup'
 import Card from './components/Card'
+import WangEditor from './components/WangEditor'
+import MyMarkdown from './components/MyMarkdown'
 
 const components = {
   CopyRight,
   WhiteSpace,
   Label,
   LabelGroup,
-  Card
+  Card,
+  WangEditor,
+  MyMarkdown
 }
 
 const myview = {

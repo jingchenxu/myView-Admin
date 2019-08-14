@@ -14,8 +14,8 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
 
 @Component
 export default class MisPageTitle extends Vue {
-  @Prop({type: String, default: 'empty'}) private title: String
-  @Prop({type: String, default: 'empty'}) private description: String
+  @Prop({ type: String, default: 'empty' }) private title: String
+  @Prop({ type: String, default: 'empty' }) private description: String
 }
 </script>
 
@@ -30,5 +30,3 @@ export default class MisPageTitle extends Vue {
   }
 }
 </style>
-
-

@@ -154,4 +154,14 @@ Mock.mock(/\/api\/getcolumns[\s\S]*?/, 'get', (req, res) => {
   }
 })
 
+Mock.mock('/api/savearticle', 'post', (req, res) => {
+  let article = JSON.parse(req.body)
+  console.dir(article)
+  return {
+    success: true,
+    data: {},
+    msg: '保存成功'
+  }
+})
+
 export default Mock

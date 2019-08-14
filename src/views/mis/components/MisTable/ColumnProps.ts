@@ -1,4 +1,4 @@
-export default interface TableColumn {
+export default interface ColumnProps {
   type?: String,
   index?: Number | Function,
   'column-key'?: String,

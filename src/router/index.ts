@@ -42,6 +42,9 @@ const router:Router = new Router({
       { path: 'basic-form', name: 'basic-form', component: () => import('@/views/mis/for/BasicForm.vue') },
       { path: 'step-form', name: 'step-form', component: () => import('@/views/mis/for/StepForm.vue') },
       { path: 'advance-form', name: 'advance-form', component: () => import('@/views/mis/for/AdvanceForm.vue') },
+      { path: 'article-publish', name: 'article-publish', component: () => import('@/views/mis/for/ArticlePublish.vue') },
+      { path: 'wang-editor', name: 'wang-editor', component: () => import('@/views/mis/edi/WangEditorPage.vue') },
+      { path: 'markdown', name: 'markdown', component: () => import('@/views/mis/edi/MarkdownPage.vue') }
     ]
   },
   {

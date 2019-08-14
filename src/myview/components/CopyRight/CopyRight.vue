@@ -2,7 +2,7 @@
   <footer class="copy-right">
     <span>myView Admin</span>
     </br>
-    <span>Copyright © 2019 jingchenxu2015@gmail.com</span>
+    <span>Copyright © 2019 <a href="mailto:jingchenxu2015@gmail.com">jingchenxu2015@gmail.com</a></span>
   </footer>
 </template>
 

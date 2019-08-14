@@ -31,7 +31,3 @@ export default class AdvanceForm extends Vue {
   }
 }
 </style>
-
-
-
-

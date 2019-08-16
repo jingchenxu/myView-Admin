@@ -36,6 +36,11 @@ const mutations = {
       state.cachePages.push(menu)
     }
   },
+  closeCachePage: (state: State, menu: Menu) => {
+    state.cachePages = state.cachePages.filter((item: Menu) => {
+      return item.mid !== menu.mid
+    })
+  },
   changeExpandMisMenu: (state: State) => {
     let { expandMisMenu } = { ...state }
     state.expandMisMenu = !expandMisMenu
@@ -53,6 +58,9 @@ const actions = {
     console.dir(menu)
     context.commit('updateCurrentPage', menu)
     context.commit('updateCachePages', menu)
+  },
+  CLOSECACHEPAGE: (context: { commit: Commit }, menu: Menu) => {
+    context.commit('closeCachePage', menu)
   },
   CHANGEEXPANDMISMENU: (context: { commit: Commit }) => {
     context.commit('changeExpandMisMenu')

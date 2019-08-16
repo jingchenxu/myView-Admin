@@ -2,6 +2,7 @@ import Vue from 'vue'
 import ColumnProps from './ColumnProps'
 
 const Column = Vue.component('Column', {
+  // @ts-ignore
   functional: true,
   render (createElement, context: {props: {columnItem: any}}) {
     // TODO 更具props中的内容进行各种渲染

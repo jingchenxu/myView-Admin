@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-16dccbf4"],{8586:function(n,a,c){"use strict";c.r(a);var e=function(){var n=this,a=n.$createElement,c=n._self._c||a;return c("div",{staticClass:"markdown-page"},[c("Card",[c("my-markdown")],1)],1)},t=[],r={name:"MarkdownPage"},s=r,o=(c("b945"),c("2877")),u=Object(o["a"])(s,e,t,!1,null,"62e3b5aa",null);a["default"]=u.exports},b945:function(n,a,c){"use strict";var e=c("c146"),t=c.n(e);t.a},c146:function(n,a,c){}}]);
+//# sourceMappingURL=chunk-16dccbf4.8a039a27.js.map

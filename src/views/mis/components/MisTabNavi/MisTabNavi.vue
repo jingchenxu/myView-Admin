@@ -5,9 +5,14 @@
         <span @click="handlePrev" class="tab-navi-prev">
           <Icon type="ios-arrow-back" />
         </span>
-        <div class="tab-navi-scroll">
-          <div class="tab-navi">
-            <div :class="activeMKey === menu.mkey ? 'active' : ''" :key="menu.mkey" @click="handleTabClick(menu)" v-for="(menu, index) of naviList" class="tab-item">{{menu.mname}}<Icon type="md-close" /></div>
+        <div ref="navi-scroll" class="tab-navi-scroll">
+          <div ref="tab-navi" class="tab-navi">
+            <div :class="activeMKey === menu.mkey ? 'active' : ''" :key="menu.mkey" @click="handleTabClick(menu)" v-for="(menu, index) of naviList" class="tab-item">
+              <div class="navi-title">
+                <span>{{menu.mname}}</span>
+              </div>
+              <Icon @click.stop="handleClose(menu, index, naviList[index-1], naviList[index+1])" type="md-close" />
+            </div>
           </div>
         </div>
         <span @click="handleNext" class="tab-navi-next">
@@ -21,6 +26,11 @@
 <script>
 export default {
   name: 'MisTabNavi',
+  data () {
+    return {
+      translateX: 0
+    }
+  },
   props: {
     naviList: {
       type: Array
@@ -34,17 +44,91 @@ export default {
       return this.activeNavi.mkey
     }
   },
+  watch: {
+    naviList: {
+      handler (val) {
+        if (val.length === 0) {
+          this.$router.push({
+            name: 'index'
+          })
+        }
+        this.updateNaviPosition()
+      }
+    }
+  },
+  mounted () {
+    window.addEventListener('resize', this.updateNaviPosition)
+  },
   methods: {
     handlePrev () {
-
+      console.log('向左移动')
+      let tabNavi = this.$refs['tab-navi']
+      let naviScroll = this.$refs['navi-scroll']
+      let tabNavi_width = tabNavi.clientWidth
+      let naviScroll_width = naviScroll.clientWidth
+      // 先判断能不能向左移动
+      // 如果能向左移动 则移动多长的距离
+      if ((tabNavi_width + this.translateX) > naviScroll_width) {
+        if ((tabNavi_width + this.translateX) > naviScroll_width * 2) {
+          this.translateX = this.translateX - naviScroll_width
+        } else {
+          this.translateX = this.translateX - ((tabNavi_width + this.translateX) - naviScroll_width)
+        }
+      } else {
+        console.log('不能向左移动了')
+      }
+      tabNavi.style.transform = `translateX(${this.translateX}px)`
     },
     handleNext () {
-
+      console.log('向右移动')
+      let tabNavi = this.$refs['tab-navi']
+      let naviScroll = this.$refs['navi-scroll']
+      let tabNavi_width = tabNavi.clientWidth
+      let naviScroll_width = naviScroll.clientWidth
+      // 先判断能不能向右
+      // 如果向右移动则移动多长距离
+      if (this.translateX < 0) {
+        if ((0 - this.translateX) > naviScroll_width) {
+          this.translateX = this.translateX + naviScroll_width
+        } else {
+          this.translateX = 0
+        }
+      } else {
+        console.log('不能向右移动')
+      }
+      tabNavi.style.transform = `translateX(${this.translateX}px)`
+    },
+    updateNaviPosition () {
+      // 判断需要向哪边移动
+      let tabNavi = this.$refs['tab-navi']
+      let naviScroll = this.$refs['navi-scroll']
+      let tabNavi_width = tabNavi.clientWidth
+      let naviScroll_width = naviScroll.clientWidth
+      // 先判断是否需要移动 translateX = 0 不需要移动
+      // 再判断需要像哪边移动 tabNavi_width + translateX < naviScroll_width 需要移动 需要将 translateX = 0
+      if (tabNavi_width + this.translateX < naviScroll_width) {
+        this.translateX = 0
+      }
+      tabNavi.style.transform = `translateX(${this.translateX}px)`
     },
     handleTabClick (menu) {
       this.$router.push({
         name: menu.mkey
       })
+    },
+    handleClose (menu, index, preMenu, nextMenu) {
+      this.$store.dispatch('CLOSECACHEPAGE', menu)
+      if (preMenu) {
+        this.$router.push({
+          name: preMenu.mkey
+        })
+      } else {
+        if (nextMenu) {
+          this.$router.push({
+            name: nextMenu.mkey
+          })
+        }
+      }
     }
   }
 }
@@ -81,8 +165,12 @@ export default {
         box-sizing: border-box;
         position: relative;
         transition: transform 0.5s ease-in-out;
+        .navi-title {
+          display: inline-block;
+          margin-right: 10px;
+        }
         .tab-item {
-          min-width: 100px;
+          min-width: 50px;
           margin-right: 10px;
           height: 32px;
           line-height: 32px;

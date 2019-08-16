@@ -44,8 +44,8 @@
 
 <script>
 export default {
-  name: "ArticlePublish",
-  data() {
+  name: 'ArticlePublish',
+  data () {
     return {
       loading: false,
       form: {
@@ -83,7 +83,7 @@ export default {
           value: '02'
         }
       ]
-    };
+    }
   },
   methods: {
     handleSubmit () {
@@ -102,7 +102,7 @@ export default {
       })
     }
   }
-};
+}
 </script>
 
 <style lang="less" scoped>

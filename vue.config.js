@@ -16,6 +16,23 @@ module.exports = {
       // 为开发环境修改配置...
     }
   },
+  devServer: {
+    proxy: {
+      '/codekeep': {
+        target: 'http://localhost:2048/codekeep',
+        // changeOrigin: true,
+        // ws: true,
+        bypass: function (req, res, proxyOptions) {
+          // console.dir(req)
+          // console.dir(res)
+          // console.dir(proxyOptions)
+        },
+        pathRewrite: {
+          '^/codekeep': ''
+        }
+      }
+    }
+  },
   css: {
     loaderOptions: {
       less: {

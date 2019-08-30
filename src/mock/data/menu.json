@@ -104,6 +104,19 @@
     "morder": 0
   },
   {
+    "mid": 24,
+    "mkey": "art-tag",
+    "mname": "文章标签管理",
+    "micon": "md app",
+    "mpath": "/syspage3",
+    "mtip": "简单列表页",
+    "mrender": "default",
+    "mpid": 2,
+    "mlevel": 2,
+    "mstatus": 1,
+    "morder": 0
+  },
+  {
     "mid": 3,
     "mkey": "set",
     "mname": "个人页",

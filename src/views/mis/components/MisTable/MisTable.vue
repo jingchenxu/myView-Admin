@@ -9,7 +9,7 @@
     v-loading="loading"
     @select="handleSelect"
     @row-dblclick="handleDbclick">
-      <Column :key="index" :column-item="columnItem" v-for="(columnItem, index) of columnList"/>
+      <Column :key="index" :column-item="columnItem" v-for="(columnItem, index) of tableColumn"/>
       <!-- <el-table-column type="index" align="center" width="50"/>
       <el-table-column type="selection" align="center" width="55"/>
       <el-table-column prop="date" :formatter="dataFormat" label="日期" width="180"/>
@@ -41,8 +41,7 @@ export default class MisTable extends Vue {
   private columns: () => []
   @Prop({ default: [] })
   private tabledata: Array<any>
-
-  private columnList = [
+  @Prop({ default: () => [
     {
       type: 'index',
       align: 'center',
@@ -55,7 +54,7 @@ export default class MisTable extends Vue {
     },
     {
       prop: 'date',
-      formatter: this.dataFormat,
+      // formatter: (this as any).dataFormat,
       label: '日期',
       width: 180
     },
@@ -68,7 +67,8 @@ export default class MisTable extends Vue {
       prop: 'address',
       label: '地址'
     }
-  ]
+  ]})
+  private tableColumn: Array<TableColumn>
 
   private handleDbclick (row: any, column: any, event: any) {
     console.log('双击被触发了')

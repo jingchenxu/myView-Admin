@@ -13,18 +13,29 @@
             <Input v-model="form.subtitle" placeholder="请输入文章副标题"></Input>
           </FormItem>
           </Col>
-          <Col span="8" style="padding-right:10px">
+          <Col span="24">
+          <FormItem label="文章简介" prop="bref">
+            <!-- <Input v-model="form.bref" type="textarea" :autosize="{minRows: 3,maxRows: 5}" placeholder="请输入文章简介"></Input> -->
+            <Input v-model="form.bref" placeholder="请输入文章简介"></Input>
+          </FormItem>
+          </Col>
+          <Col span="8">
           <FormItem label="文章分类" prop="articletype">
-          <Select v-model="form.articletype" filterable>
-            <Option v-for="item in firstLevelList" :value="item.value" :key="item.value">{{ item.label }}</Option>
-          </Select>
+            <Select v-model="form.articletype" filterable>
+              <Option v-for="item in firstLevelList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+            </Select>
           </FormItem>
           </Col>
           <Col span="16">
-          <FormItem label="文章标签" prop="level2">
-          <Select v-model="form.tags" filterable multiple>
-            <Option v-for="item in secondLevelList" :value="item.value" :key="item.value">{{ item.label }}</Option>
-          </Select>
+          <FormItem label="文章标签" prop="tags">
+            <Select v-model="form.tags" filterable multiple>
+              <Option v-for="item in secondLevelList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+            </Select>
+          </FormItem>
+          </Col>
+          <Col span="8">
+          <FormItem label="文章顺序" prop="serial">
+            <Input v-model="form.serial" placeholder="请输入文章顺序"></Input>
           </FormItem>
           </Col>
           <Col span="24">
@@ -43,66 +54,72 @@
 </template>
 
 <script>
+import Article from "./beans/Article";
+
 export default {
-  name: 'ArticlePublish',
-  data () {
+  name: "ArticlePublish",
+  data() {
     return {
       loading: false,
-      form: {
-        context: '# hello',
-        tags: []
-      },
+      form: new Article(),
+      form_disabled: false,
       rules: {
         title: [
-          { required: true, message: '文章标题不能为空！', trigger: 'blur' }
+          { required: true, message: "文章标题不能为空！", trigger: "blur" }
         ],
         subtitle: [
-          { required: true, message: '文章副标题不能为空', trigger: 'blur' }
+          { required: true, message: "文章副标题不能为空", trigger: "blur" }
         ],
         articletype: [
-          { required: true, message: '请选择文章分类', trigger: 'change' }
+          { required: true, message: "请选择文章分类", trigger: "change" }
         ]
       },
       firstLevelList: [
         {
-          label: '试题',
-          value: '01'
+          label: "文章",
+          value: "01"
         },
         {
-          label: '文章',
-          value: '02'
+          label: "基础知识",
+          value: "02"
+        },
+        {
+          label: "面试题",
+          value: "03"
         }
       ],
       secondLevelList: [
         {
-          label: 'java',
-          value: '01'
+          label: "java",
+          value: "01"
         },
         {
-          label: 'javascript',
-          value: '02'
+          label: "javascript",
+          value: "02"
         }
       ]
-    }
+    };
   },
   methods: {
-    handleSubmit () {
-      this.$refs.form.validate((valid) => {
+    handleSubmit() {
+      this.$refs.form.validate(valid => {
         if (valid) {
-          this.loading = true
-          this.$axios.post('/api/savearticle', this.form).then(res => {
-            this.loading = false
-            if (res.success) {
-              this.$Message.success(res.msg)
-            }
-          })
+          // this.loading = true;
+          this.$axios
+            .post("/codekeep/art/save_article", this.form)
+            .then(res => {
+              // this.loading = false;
+              if (res.success) {
+                this.$Message.success(res.msg);
+              }
+            });
         } else {
-          this.$Message.error('表单校验失败')
+          this.$Message.error("表单校验失败");
         }
-      })
+      });
     }
   }
-}
+};
 </script>
 
 <style lang="less" scoped>

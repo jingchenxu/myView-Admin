@@ -33,6 +33,7 @@ const router:Router = new Router({
       { path: 'syspage1', name: 'syspage1', component: () => import('@/views/mis/sys/SysPage1.vue') },
       { path: 'syspage2', name: 'syspage2', component: () => import('@/views/mis/sys/SysPage2.vue') },
       { path: 'syspage3', name: 'syspage3', component: () => import('@/views/mis/sys/SysPage3.vue') },
+      { path: 'art-tag', name: 'art-tag', component: () => import('@/views/mis/sys/ArtTag.vue') },
       { path: 'usercenter', name: 'usercenter', component: () => import('@/views/mis/set/UserCenter.vue') },
       { path: 'usersetting', name: 'usersetting', component: () => import('@/views/mis/set/UserSetting.vue') },
       { path: 'notfound', name: 'notfound', component: () => import('@/views/mis/exception/NotFound.vue') },

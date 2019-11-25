@@ -10,6 +10,7 @@ export default class SysMenu {
     this.mlevel = ''
     this.mstatus = ''
   }
+
   private mid:String
   private mkey:String
   private mname:String

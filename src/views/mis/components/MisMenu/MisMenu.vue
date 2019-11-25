@@ -45,9 +45,11 @@ export default class MisMenu extends Vue {
   private handleOpen (key: String, keyPath: String) {
     console.log(key, keyPath)
   }
+
   private handleClose (key: String, keyPath: String) {
     console.log(key, keyPath)
   }
+
   private handleSelect (index: any, indexPath: String, item: any) {
     this.$router.push({
       name: index

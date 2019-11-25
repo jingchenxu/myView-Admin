@@ -61,9 +61,9 @@ export default {
   watch: {
     $route: {
       handler (to, from) {
-        let getMenu = this.getMenu
+        const getMenu = this.getMenu
         let menu = false
-        for (let _menu of getMenu) {
+        for (const _menu of getMenu) {
           if (_menu.mkey === to.name) {
             menu = _menu
           }
@@ -98,9 +98,9 @@ export default {
         if (res.success) {
           this.$store.dispatch('UPDATECURRENTUSER', res.data)
           console.dir(this.$route)
-          let getMenu = this.getMenu
+          const getMenu = this.getMenu
           let menu = false
-          for (let _menu of getMenu) {
+          for (const _menu of getMenu) {
             if (_menu.mkey === this.$route.name) {
               menu = _menu
             }

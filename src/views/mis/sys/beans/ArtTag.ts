@@ -1,3 +1,3 @@
 class ArtTag {
-  tagid: 
+  tagid: String = '12'
 }

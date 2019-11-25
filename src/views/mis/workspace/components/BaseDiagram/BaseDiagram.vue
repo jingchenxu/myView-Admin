@@ -18,33 +18,33 @@ export default {
   methods: {
     drawArea () {
       // 绘制曲线区域图
-      let svgContainer = document.getElementById('diagram')
-      let _this = this
-      let width = svgContainer.clientWidth
-      let height = svgContainer.clientHeight
-      let padding = {
+      const svgContainer = document.getElementById('diagram')
+      const _this = this
+      const width = svgContainer.clientWidth
+      const height = svgContainer.clientHeight
+      const padding = {
         left: 30,
         right: 30,
         top: 20,
         bottom: 20
       }
       document.getElementById('diagram').innerHTML = ''
-      let svg = d3
+      const svg = d3
         .select('#diagram')
         .append('svg')
         .attr('width', width + 'px')
         .attr('height', height + 'px')
       // 绘制x轴曲线
-      let xScale = d3
+      const xScale = d3
         .scaleBand()
         .domain(['1月', '2月', '3月', '4月', '5月', '6月'])
         .range([0, width - padding.left - padding.right])
-      let yScale = d3
+      const yScale = d3
         .scaleLinear()
         .domain([d3.min(_this.areaData), d3.max(_this.areaData)])
         .range([height - padding.bottom - padding.top, 0])
-      let xAxis = d3.axisBottom().scale(xScale)
-      let yAxis = d3.axisLeft().scale(yScale)
+      const xAxis = d3.axisBottom().scale(xScale)
+      const yAxis = d3.axisLeft().scale(yScale)
       svg
         .append('g')
         .attr('class', 'axis')
@@ -63,8 +63,8 @@ export default {
         .call(yAxis)
 
       // 颜色渐变
-      let defs = svg.append('defs')
-      let linearGradient = defs
+      const defs = svg.append('defs')
+      const linearGradient = defs
         .append('linearGradient')
         .attr('id', 'linearColor')
         .attr('x1', '0%')
@@ -72,8 +72,8 @@ export default {
         .attr('x2', '0%')
         .attr('y2', '0%')
         .attr('y2', '100%')
-      let a = d3.rgb(235, 0, 233)
-      let b = d3.rgb(133, 0, 187)
+      const a = d3.rgb(235, 0, 233)
+      const b = d3.rgb(133, 0, 187)
       linearGradient
         .append('stop')
         .attr('offset', '0%')
@@ -88,7 +88,7 @@ export default {
         .duration(2000)
         .attr('offset', '100%')
         .style('stop-color', b.toString())
-      let area = d3
+      const area = d3
         .area()
         .x(function (d, i) {
           return (

@@ -49,6 +49,7 @@ export default class SysPage3 extends Vue {
       data: []
     }
   }
+
   private mounted () {
     this.initList()
   }
@@ -58,20 +59,20 @@ export default class SysPage3 extends Vue {
   }
 
   private handleSearch () {
-    let vm = this as any
+    const vm = this as any
     (this as any).searching = true
-    let searchParams: any = Object.assign((this as any).searchParams, {})
-    searchParams['pagenumber'] = (this as any).currentPage
-    searchParams['limit'] = (this as any).pageSize
-    let params = new URLSearchParams()
-    for (let key in searchParams) {
+    const searchParams: any = Object.assign((this as any).searchParams, {})
+    searchParams.pagenumber = (this as any).currentPage
+    searchParams.limit = (this as any).pageSize
+    const params = new URLSearchParams()
+    for (const key in searchParams) {
       if (searchParams[key]) {
         params.append(key, searchParams[key])
       }
     }
     searchUserList(params).then((res: any) => {
       (this as any).searching = false
-      let result = res.data
+      const result = res.data
       if (result.success) {
         vm.data = result.data.list
         vm.total = result.data.total

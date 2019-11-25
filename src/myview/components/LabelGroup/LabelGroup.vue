@@ -15,7 +15,7 @@ export default {
   props: {
     labelText: {
       type: Array,
-      default: []
+      default: () => []
     }
   },
   data () {

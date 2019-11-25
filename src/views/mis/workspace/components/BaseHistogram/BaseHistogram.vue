@@ -17,7 +17,7 @@ export default {
   methods: {
     drawArea () {
       // 绘制柱状图区域
-      let svgContainer = document.getElementById('histogram')
+      const svgContainer = document.getElementById('histogram')
     }
   },
   mounted () {

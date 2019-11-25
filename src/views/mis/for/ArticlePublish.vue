@@ -54,72 +54,72 @@
 </template>
 
 <script>
-import Article from "./beans/Article";
+import Article from './beans/Article'
 
 export default {
-  name: "ArticlePublish",
-  data() {
+  name: 'ArticlePublish',
+  data () {
     return {
       loading: false,
       form: new Article(),
       form_disabled: false,
       rules: {
         title: [
-          { required: true, message: "文章标题不能为空！", trigger: "blur" }
+          { required: true, message: '文章标题不能为空！', trigger: 'blur' }
         ],
         subtitle: [
-          { required: true, message: "文章副标题不能为空", trigger: "blur" }
+          { required: true, message: '文章副标题不能为空', trigger: 'blur' }
         ],
         articletype: [
-          { required: true, message: "请选择文章分类", trigger: "change" }
+          { required: true, message: '请选择文章分类', trigger: 'change' }
         ]
       },
       firstLevelList: [
         {
-          label: "文章",
-          value: "01"
+          label: '文章',
+          value: '01'
         },
         {
-          label: "基础知识",
-          value: "02"
+          label: '基础知识',
+          value: '02'
         },
         {
-          label: "面试题",
-          value: "03"
+          label: '面试题',
+          value: '03'
         }
       ],
       secondLevelList: [
         {
-          label: "java",
-          value: "01"
+          label: 'java',
+          value: '01'
         },
         {
-          label: "javascript",
-          value: "02"
+          label: 'javascript',
+          value: '02'
         }
       ]
-    };
+    }
   },
   methods: {
-    handleSubmit() {
+    handleSubmit () {
       this.$refs.form.validate(valid => {
         if (valid) {
           // this.loading = true;
           this.$axios
-            .post("/codekeep/art/save_article", this.form)
+            .post('/codekeep/art/save_article', this.form)
             .then(res => {
               // this.loading = false;
               if (res.success) {
-                this.$Message.success(res.msg);
+                this.$Message.success(res.msg)
               }
-            });
+            })
         } else {
-          this.$Message.error("表单校验失败");
+          this.$Message.error('表单校验失败')
         }
-      });
+      })
     }
   }
-};
+}
 </script>
 
 <style lang="less" scoped>

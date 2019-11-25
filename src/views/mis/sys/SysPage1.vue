@@ -87,7 +87,7 @@ export default {
       this.selection = selection
     },
     getColumns () {
-      let params = new URLSearchParams()
+      const params = new URLSearchParams()
       params.append('columnid', this.columnid)
       this.$axios.get(`${this.columnUrl}?columnid=${this.columnid}`).then(res => {
         if (res.success) {
@@ -97,11 +97,11 @@ export default {
     },
     handleSearch () {
       this.searching = true
-      let searchParams = Object.assign(this.searchParams, {})
-      searchParams['pagenumber'] = this.currentPage
-      searchParams['limit'] = this.pageSize
-      let params = new URLSearchParams()
-      for (let key in searchParams) {
+      const searchParams = Object.assign(this.searchParams, {})
+      searchParams.pagenumber = this.currentPage
+      searchParams.limit = this.pageSize
+      const params = new URLSearchParams()
+      for (const key in searchParams) {
         if (searchParams[key]) {
           params.append(key, searchParams[key])
         }

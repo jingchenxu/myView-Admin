@@ -84,6 +84,7 @@ export default class BasicForm extends Vue {
     time: '',
     desc: ''
   };
+
   ruleValidate = {
     name: [
       { required: true, message: 'The name cannot be empty', trigger: 'blur' }
@@ -143,6 +144,7 @@ export default class BasicForm extends Vue {
       }
     ]
   };
+
   handleSubmit (name: any) {
     // this.$refs[name].validate((valid) => {
     //     if (valid) {
@@ -152,6 +154,7 @@ export default class BasicForm extends Vue {
     //     }
     // })
   }
+
   handleReset (name: any) {
     // this.$refs[name].resetFields();
   }

@@ -16,12 +16,12 @@ const getters = {
   getUser: (state: State) => state.currentUser.user,
   getMenu: (state: State) => state.currentUser.menu,
   getMenuTree: (state: State) => {
-    let { menu } = { ...state.currentUser }
+    const { menu } = { ...state.currentUser }
     // 找到一级菜单
-    let menuTree = menu.filter(_menu => _menu.mlevel === 1)
+    const menuTree = menu.filter(_menu => _menu.mlevel === 1)
     // FIXME 先只管二级菜单
     for (let i = 0; i < menuTree.length; i++) {
-      menuTree[i]['child'] = menu.filter(_menu => _menu.mpid === menuTree[i].mid && _menu.mpid !== _menu.mid)
+      menuTree[i].child = menu.filter(_menu => _menu.mpid === menuTree[i].mid && _menu.mpid !== _menu.mid)
     }
     return menuTree
   },

@@ -24,7 +24,7 @@ export default {
           title: '单价',
           key: 'goodprice',
           render: (h, params) => {
-            let _goodprice = Number(params.row.goodprice).toFixed(2)
+            const _goodprice = Number(params.row.goodprice).toFixed(2)
             return h('span', _goodprice)
           }
         },
@@ -36,7 +36,7 @@ export default {
           title: '全额',
           key: 'goodtotal',
           render: (h, params) => {
-            let _goodtotal = Number(params.row.goodtotal).toFixed(2)
+            const _goodtotal = Number(params.row.goodtotal).toFixed(2)
             return h('span', _goodtotal)
           }
         }

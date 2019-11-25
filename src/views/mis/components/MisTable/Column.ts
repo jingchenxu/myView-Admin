@@ -6,9 +6,9 @@ const Column = Vue.component('Column', {
   functional: true,
   render (createElement, context: {props: {columnItem: any}}) {
     // TODO 更具props中的内容进行各种渲染
-    let columnItem = context.props.columnItem
-    let _props: any = {}
-    for (let key in columnItem) {
+    const columnItem = context.props.columnItem
+    const _props: any = {}
+    for (const key in columnItem) {
       // TODO 看看有哪些属性
       if (columnItem[key]) {
         _props[key] = columnItem[key]

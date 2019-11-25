@@ -1,7 +1,7 @@
 import request from './request'
 import bus from './bus'
 
-let vueplugin = {}
+const vueplugin = {}
 
 vueplugin.install = function (Vue, options) {
   Vue.prototype.$axios = request()

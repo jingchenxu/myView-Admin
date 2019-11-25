@@ -13,7 +13,7 @@ const getters = {
   getCurrentPage: (state: State) => state.currentPage,
   getCachePages: (state: State) => state.cachePages,
   getCachePagesKeys: (state: State) => {
-    let cachePagesKeys = state.cachePages.map(page => page.mkey)
+    const cachePagesKeys = state.cachePages.map(page => page.mkey)
     return cachePagesKeys
   },
   getExpandMisMenu: (state: State) => state.expandMisMenu,
@@ -26,7 +26,7 @@ const mutations = {
   },
   updateCachePages: (state: State, menu: Menu) => {
     let isHave: Boolean = false
-    let { cachePages } = { ...state }
+    const { cachePages } = { ...state }
     cachePages.forEach((item: Menu) => {
       if (item.mid === menu.mid) {
         isHave = true
@@ -42,7 +42,7 @@ const mutations = {
     })
   },
   changeExpandMisMenu: (state: State) => {
-    let { expandMisMenu } = { ...state }
+    const { expandMisMenu } = { ...state }
     state.expandMisMenu = !expandMisMenu
   },
   loadingStart: (state: State) => {

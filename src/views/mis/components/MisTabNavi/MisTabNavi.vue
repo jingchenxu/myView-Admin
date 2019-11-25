@@ -62,10 +62,10 @@ export default {
   methods: {
     handlePrev () {
       console.log('向左移动')
-      let tabNavi = this.$refs['tab-navi']
-      let naviScroll = this.$refs['navi-scroll']
-      let tabNavi_width = tabNavi.clientWidth
-      let naviScroll_width = naviScroll.clientWidth
+      const tabNavi = this.$refs['tab-navi']
+      const naviScroll = this.$refs['navi-scroll']
+      const tabNavi_width = tabNavi.clientWidth
+      const naviScroll_width = naviScroll.clientWidth
       // 先判断能不能向左移动
       // 如果能向左移动 则移动多长的距离
       if ((tabNavi_width + this.translateX) > naviScroll_width) {
@@ -81,10 +81,10 @@ export default {
     },
     handleNext () {
       console.log('向右移动')
-      let tabNavi = this.$refs['tab-navi']
-      let naviScroll = this.$refs['navi-scroll']
-      let tabNavi_width = tabNavi.clientWidth
-      let naviScroll_width = naviScroll.clientWidth
+      const tabNavi = this.$refs['tab-navi']
+      const naviScroll = this.$refs['navi-scroll']
+      const tabNavi_width = tabNavi.clientWidth
+      const naviScroll_width = naviScroll.clientWidth
       // 先判断能不能向右
       // 如果向右移动则移动多长距离
       if (this.translateX < 0) {
@@ -100,10 +100,10 @@ export default {
     },
     updateNaviPosition () {
       // 判断需要向哪边移动
-      let tabNavi = this.$refs['tab-navi']
-      let naviScroll = this.$refs['navi-scroll']
-      let tabNavi_width = tabNavi.clientWidth
-      let naviScroll_width = naviScroll.clientWidth
+      const tabNavi = this.$refs['tab-navi']
+      const naviScroll = this.$refs['navi-scroll']
+      const tabNavi_width = tabNavi.clientWidth
+      const naviScroll_width = naviScroll.clientWidth
       // 先判断是否需要移动 translateX = 0 不需要移动
       // 再判断需要像哪边移动 tabNavi_width + translateX < naviScroll_width 需要移动 需要将 translateX = 0
       if (tabNavi_width + this.translateX < naviScroll_width) {

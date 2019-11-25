@@ -38,7 +38,7 @@ export default {
   methods: {
     addEvents () {
       this.markdown.codemirror.on('change', () => {
-        let value = this.markdown.value()
+        const value = this.markdown.value()
         console.log(value)
         if (this.localCache) localStorage.markdownContent = value
         this.$emit('input', value)
@@ -117,7 +117,7 @@ export default {
         // toolbar: true,
         toolbarTips: true
       }
-      let markdown = document.getElementById('myMarkdown')
+      const markdown = document.getElementById('myMarkdown')
       if (!this.markdown) {
         console.log(this.value)
         this.markdown = new SimpleMDE(Object.assign(defaultConfig, this.option))

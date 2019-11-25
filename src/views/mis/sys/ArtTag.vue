@@ -21,22 +21,22 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import MisTable from "../components/MisTable";
-import MisSimpleList from "../components/MisSimpleList";
+import { Component, Vue } from 'vue-property-decorator'
+import MisTable from '../components/MisTable'
+import MisSimpleList from '../components/MisSimpleList'
 
 @Component({
-  name: "art_tag",
+  name: 'art_tag',
   components: {
     MisTable,
     MisSimpleList
   }
 })
 export default class SysPage3 extends Vue {
-  private data() {
+  private data () {
     return {
       searchParams: {},
-      searchUrl: "/codekeep/art/search_tag",
+      searchUrl: '/codekeep/art/search_tag',
       searching: false,
       currentPage: 1,
       pageSize: 10,
@@ -44,55 +44,56 @@ export default class SysPage3 extends Vue {
       data: [],
       column: [
         {
-          type: "index",
-          align: "center",
+          type: 'index',
+          align: 'center',
           width: 50
         },
         {
-          type: "selection",
-          align: "center",
+          type: 'selection',
+          align: 'center',
           width: 50
         },
         {
-          prop: "tagid",
-          label: "标签编号",
+          prop: 'tagid',
+          label: '标签编号',
           width: 180
         },
         {
-          prop: "tagname",
-          label: "标签名称",
+          prop: 'tagname',
+          label: '标签名称',
           width: 180
         },
         {
-          prop: "icon",
-          label: "标签图标",
+          prop: 'icon',
+          label: '标签图标',
           width: 180
         },
         {
-          prop: "desc",
-          label: "标签描述"
+          prop: 'desc',
+          label: '标签描述'
         }
       ]
-    };
-  }
-  private mounted() {
-    this.initList();
+    }
   }
 
-  private async initList() {
-    await this.handleSearch();
+  private mounted () {
+    this.initList()
   }
 
-  private handleSearch() {
-    let vm = this as any;
-    (this as any).searching = true;
-    let searchParams: any = Object.assign((this as any).searchParams, {});
-    searchParams["pagenumber"] = (this as any).currentPage;
-    searchParams["pagesize"] = (this as any).pageSize;
-    let params = new URLSearchParams();
-    for (let key in searchParams) {
+  private async initList () {
+    await this.handleSearch()
+  }
+
+  private handleSearch () {
+    const vm = this as any;
+    (this as any).searching = true
+    const searchParams: any = Object.assign((this as any).searchParams, {})
+    searchParams.pagenumber = (this as any).currentPage
+    searchParams.pagesize = (this as any).pageSize
+    const params = new URLSearchParams()
+    for (const key in searchParams) {
       if (searchParams[key]) {
-        params.append(key, searchParams[key]);
+        params.append(key, searchParams[key])
       }
     }
     (this as any).$axios.get(`${(this as any).searchUrl}`, { params })
@@ -103,13 +104,13 @@ export default class SysPage3 extends Vue {
       })
   }
 
-  private handleAdd() {}
+  private handleAdd () {}
 
-  private handleBack() {}
+  private handleBack () {}
 
-  private handlePageChange(currentPage: number) {
-    (this as any).currentPage = currentPage;
-    this.handleSearch();
+  private handlePageChange (currentPage: number) {
+    (this as any).currentPage = currentPage
+    this.handleSearch()
   }
 }
 </script>

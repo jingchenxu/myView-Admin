@@ -1,5 +1,5 @@
 export default function sysuserRule () {
-  let rule = {
+  const rule = {
     address: [
       { required: true, message: '用户地址不能为空', trigger: 'blur' }
     ],

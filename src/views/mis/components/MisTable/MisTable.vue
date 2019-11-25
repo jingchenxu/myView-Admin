@@ -35,54 +35,62 @@ import Column from './Column'
 export default class MisTable extends Vue {
   @Prop({ type: Boolean, default: true })
   private stripe: Boolean = true
+
   @Prop({ type: Boolean, default: false })
   private loading: Boolean = false
+
   @Prop({})
   private columns: () => []
+
   @Prop({ default: [] })
   private tabledata: Array<any>
-  @Prop({ default: () => [
-    {
-      type: 'index',
-      align: 'center',
-      width: 50
-    },
-    {
-      type: 'selection',
-      align: 'center',
-      width: 50
-    },
-    {
-      prop: 'date',
-      // formatter: (this as any).dataFormat,
-      label: '日期',
-      width: 180
-    },
-    {
-      prop: 'name',
-      label: '姓名',
-      width: 180
-    },
-    {
-      prop: 'address',
-      label: '地址'
-    }
-  ]})
+
+  @Prop({
+    default: () => [
+      {
+        type: 'index',
+        align: 'center',
+        width: 50
+      },
+      {
+        type: 'selection',
+        align: 'center',
+        width: 50
+      },
+      {
+        prop: 'date',
+        // formatter: (this as any).dataFormat,
+        label: '日期',
+        width: 180
+      },
+      {
+        prop: 'name',
+        label: '姓名',
+        width: 180
+      },
+      {
+        prop: 'address',
+        label: '地址'
+      }
+    ]
+  })
   private tableColumn: Array<TableColumn>
 
   private handleDbclick (row: any, column: any, event: any) {
     console.log('双击被触发了')
     this.$emit('handleDbclick', row, column, event)
   }
+
   private handleSelect (selection: any, row: any) {
     this.$emit('handleSelect', selection, row)
   }
+
   private dataFormat (row: any, column: any, cellValue: any, index: any) {
     return moment(cellValue).format('YYYY-MM-DD')
   }
 
   private mounted () {
-    let tableColumn: TableColumn = {
+    const tableColumn: TableColumn = {
       prop: 'data',
       label: '日期'
     }

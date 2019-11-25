@@ -13,7 +13,7 @@ Mock.setup({
 })
 
 Mock.mock('/api/data', 'get', (req, res) => {
-  let sysMenu = new SysMenu()
+  const sysMenu = new SysMenu()
   sysMenu.mid = '1213'
   return {
     success: true,
@@ -23,9 +23,9 @@ Mock.mock('/api/data', 'get', (req, res) => {
 })
 
 Mock.mock('/api/login', 'post', (req, res) => {
-  let login = JSON.parse(req.body)
+  const login = JSON.parse(req.body)
   // 返回用户的基本信息
-  let user = new SysUser()
+  const user = new SysUser()
   if (login.user !== 'mvadmin' || login.password !== 'mvadmin') {
     return {
       success: false,
@@ -34,7 +34,7 @@ Mock.mock('/api/login', 'post', (req, res) => {
     }
   }
   // 返回用户的菜单信息
-  let menu = menuList
+  const menu = menuList
   // TODO 返回用户的菜单操作按钮信息
   return {
     success: true,
@@ -47,8 +47,8 @@ Mock.mock('/api/login', 'post', (req, res) => {
 })
 
 Mock.mock('/api/getonlineuser', 'get', (req, res) => {
-  let user = new SysUser()
-  let menu = menuList
+  const user = new SysUser()
+  const menu = menuList
   return {
     success: true,
     data: {
@@ -77,10 +77,9 @@ Mock.mock(/\/api\/searchuserlist[\s\S]*?/, 'get', (req, res) => {
     }
     return ''
   }
-  let pagenumber = Number(getUrl('pagenumber'))
-  let limit = Number(getUrl('limit'))
+  const pagenumber = Number(getUrl('pagenumber'))
+  const limit = Number(getUrl('limit'))
   let name = getUrl('name')
-  let address = getUrl('address')
   let _userList = []
   if (name !== '') {
     name = decodeURIComponent(name)
@@ -88,8 +87,8 @@ Mock.mock(/\/api\/searchuserlist[\s\S]*?/, 'get', (req, res) => {
   } else {
     _userList = Object.assign(userList, [])
   }
-  let start = (pagenumber - 1) * limit
-  let end = pagenumber * limit
+  const start = (pagenumber - 1) * limit
+  const end = pagenumber * limit
   return {
     success: true,
     data: {
@@ -101,8 +100,8 @@ Mock.mock(/\/api\/searchuserlist[\s\S]*?/, 'get', (req, res) => {
 })
 
 Mock.mock('/api/savesysuser', 'post', (req, res) => {
-  let _user = JSON.parse(req.body)
-  _user['userid'] = uuidv5('myview admin', uuidv5.DNS)
+  const _user = JSON.parse(req.body)
+  _user.userid = uuidv5('myview admin', uuidv5.DNS)
   userList.unshift(_user)
   return {
     success: true,
@@ -112,7 +111,7 @@ Mock.mock('/api/savesysuser', 'post', (req, res) => {
 })
 
 Mock.mock('/api/deletesysuser', 'delete', (req, res) => {
-  let _selection = JSON.parse(req.body)
+  const _selection = JSON.parse(req.body)
   _selection.map(row => {
     for (let i = 0; i < userList.length; i++) {
       if (userList[i].userid === row.userid) {
@@ -138,7 +137,7 @@ Mock.mock(/\/api\/getcolumns[\s\S]*?/, 'get', (req, res) => {
     }
     return ''
   }
-  let columnid = getUrl('columnid')
+  const columnid = getUrl('columnid')
   let data = []
   switch (columnid) {
     case 'syspage':
@@ -155,7 +154,7 @@ Mock.mock(/\/api\/getcolumns[\s\S]*?/, 'get', (req, res) => {
 })
 
 Mock.mock('/api/savearticle', 'post', (req, res) => {
-  let article = JSON.parse(req.body)
+  const article = JSON.parse(req.body)
   console.dir(article)
   return {
     success: true,

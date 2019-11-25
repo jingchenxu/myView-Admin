@@ -16,6 +16,7 @@ export default class SysUser {
     this.error = ''
     this.islock = ''
   }
+
   private userid:String
   private username:String
   private usersex:String

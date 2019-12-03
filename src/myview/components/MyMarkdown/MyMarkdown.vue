@@ -5,6 +5,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 import SimpleMDE from 'simplemde'
 
 console.dir(SimpleMDE.drawImage)

@@ -1,6 +1,6 @@
 <template>
   <div class="modal-list-container">
-    
+
   </div>
 </template>
 <script lang="ts">
@@ -10,6 +10,6 @@ import { Component, Vue } from 'vue-property-decorator'
   name: 'ModalListTemplate'
 })
 export default class ModalListTemplate extends Vue {
-  
+
 }
 </script>

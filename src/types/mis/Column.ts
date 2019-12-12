@@ -5,5 +5,4 @@ class Column {
   label: string
   prop: string
   width: string
-
 }

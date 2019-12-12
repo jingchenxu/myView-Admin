@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-3700f9be"],{1283:function(n,t,e){},3948:function(n,t,e){"use strict";var a=e("1283"),i=e.n(a);i.a},"61ed":function(n,t,e){"use strict";e.r(t);var a=function(){var n=this,t=n.$createElement,e=n._self._c||t;return e("div",{staticClass:"wang-editor"},[e("wang-editor",{attrs:{disabled:!1}})],1)},i=[],r={name:"WangEditorPage",data:function(){return{}}},s=r,c=(e("3948"),e("2877")),u=Object(c["a"])(s,a,i,!1,null,"08e3a1e6",null);t["default"]=u.exports}}]);
-//# sourceMappingURL=chunk-3700f9be.001952b6.js.map

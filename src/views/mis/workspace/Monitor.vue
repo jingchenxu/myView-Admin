@@ -1,15 +1,13 @@
 <template>
   <div class="monitor-container">
     <Row :gutter="15">
-      <Col span="12">
+      <Col span="6">
         <Card :bordered="false">
-          <p slot="title">活动实时交易情况</p>
           <p>Content of no border type. Content of no border type. Content of no border type. Content of no border type. </p>
         </Card>
       </Col>
-      <Col span="12">
+      <Col span="6">
         <Card :bordered="false">
-          <p slot="title">活动情况预测</p>
           <p>Content of no border type. Content of no border type. Content of no border type. Content of no border type. </p>
         </Card>
       </Col>

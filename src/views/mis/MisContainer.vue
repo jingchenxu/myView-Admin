@@ -140,6 +140,9 @@ export default {
         cursor: pointer;
         transition: all 0.2s ease-in-out;
       }
+      .sider-trigger:hover {
+        background-color: red;
+      }
     }
 
     .el-aside {

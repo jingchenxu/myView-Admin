@@ -8,7 +8,7 @@
 import * as d3 from 'd3'
 
 export default {
-  name: 'BaseDiagram',
+  name: 'base-diagram',
   data () {
     return {
       lineData: [10, 30, 25, 12, 43, 25, 18, 36],
